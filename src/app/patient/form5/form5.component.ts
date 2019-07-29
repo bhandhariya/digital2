@@ -160,8 +160,7 @@ export class Form5Component implements OnInit {
   ChiefComplain: any;
   Illness:any;
   public loading = false;
-  @ViewChild('ChiefForm') ChiefForm;
-  @ViewChild('IllnessForm') IllnessForm;
+  
   validationMessages  = {
     'ComplaintName' : {
                     'required': 'First Name is Required',
@@ -736,9 +735,9 @@ ChiefcomplainCB=(dt)=>{
   Swal.fire({type: 'success',title: 'Data Successfully',showConfirmButton: false,timer: 1000});
   this.submmited = false;
   this.ChiefComplain.reset({id:this.id});
- this.ChiefForm.resetForm({
-   id:this.id
- });
+//  this.ChiefForm.resetForm({
+//    id:this.id
+//  });
 }
 IllnessonSubmit(formData){
   this.submmited = true;
@@ -756,7 +755,7 @@ Illnesscb=(dt)=>{
   this.Illness.reset({
     id:this.id
   });
-  this.IllnessForm.resetForm();
+  // this.IllnessForm.resetForm();
 }
 
 logValidationMessages(group: FormGroup = this.ChiefComplain): void {
