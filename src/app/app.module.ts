@@ -27,6 +27,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { PatientFamilyCreateComponent } from './patient/patient-family-create/patient-family-create.component';
 import { Form5Component } from './patient/form5/form5.component';
 import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { environment } from 'environments/environment';
+import { MatInputModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -40,12 +48,16 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,AngularFireStorageModule,AngularFireDatabaseModule,MatButtonModule,
+    MatInputModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    RegisterComponent,
     
 
   ],
