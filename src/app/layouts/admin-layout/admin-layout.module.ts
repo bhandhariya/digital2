@@ -11,6 +11,10 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {
   MatButtonModule,
@@ -18,8 +22,9 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
 } from '@angular/material';
+import { PatientCreateComponent } from 'app/patient/patient-create/patient-create.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -31,7 +36,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatTooltipModule,
+    MatTooltipModule,MatGridListModule, MatCardModule, MatMenuModule, MatIconModule,
   ],
   declarations: [
     DashboardComponent,
@@ -42,6 +47,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    PatientCreateComponent
   ]
 })
 
