@@ -1,0 +1,1947 @@
+<div class="main-content">
+    <div class="container-fluid">
+     
+          
+        <mat-accordion>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+              Chief Complain
+              </mat-expansion-panel-header>
+          
+              <form [formGroup]="ChiefComplain" (ngSubmit)="chiefComplaintSubmit(ChiefComplain.value)" #ChiefForm="ngForm">
+                <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Complaint <span
+                                            class="text-danger">*</span> </label>
+                                    <div class="col-md-6">
+                                        <input type="text" formControlName="ComplaintName" class="form-control" (blur)="logValidationMessages(ChiefComplain)"
+                                          [class.is-invalid]="formErrors.ComplaintName" placeholder="Description*">
+                                        <div *ngIf="formErrors.ComplaintName" class="invalid-feedback">{{formErrors.ComplaintName}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group row">
+                                  <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Duration: <span
+                                          class="text-danger">*</span> </label>
+                                  <div class="col-md-6">
+                                    <select class="form-control" formControlName="ComplaintDuration" class="form-control" (blur)="logValidationMessages()" [class.is-invalid]="formErrors.ComplaintDuration">
+                                      <option disabled value="">Select Your Option</option>
+                                      <option value="Last 2 days">Last 2 days</option>
+                                      <option value=" Last 2 weeks"> Last 2 weeks</option>
+                                      <option value="Less than 1 month">Less than 1 month</option>
+                                      <option value="1 to 3 months">1 to 3 months</option>
+                                      <option value="3 to 6 months">3 to 6 months</option>
+                                      <option value="More than 6 months">More than 6 months</option>
+                                      <option value="More than 1 year">More  than 1 year</option>
+                                      <option value="More than 5 years">More than 5 years</option>
+                                  </select>
+                                      <div *ngIf="formErrors.ComplaintDuration" class="invalid-feedback">{{formErrors.ComplaintDuration}}</div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                        </div>   
+                </div> 
+                <div class="card-footer">
+                    <div class="col-md-2 offset-md-10">
+                        <input type="submit" class="btn btn-primary btn-sm btn-block" value="save"    />
+                    </div>
+                </div>
+            </form>
+          
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                Illness
+              </mat-expansion-panel-header>
+              <form [formGroup]="Illness" (ngSubmit)="IllnessonSubmit(Illness.value)" #IllnessForm="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group row">
+                          <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Duration of Currunt Illness <span
+                                  class="text-danger">*</span> </label>
+                          <div class="col-md-6">
+                            <select class="form-control" formControlName="DurationOfCurruntIllness" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.DurationOfCurruntIllness">
+                              <option disabled value="">Select Your Option</option>
+                              <option value="Last 2 days">Last 2 days</option>
+                              <option value=" Last 2 weeks"> Last 2 weeks</option>
+                              <option value="Less than 1 month">Less than 1 month</option>
+                              <option value="1 to 3 months">1 to 3 months</option>
+                              <option value="3 to 6 months">3 to 6 months</option>
+                              <option value="More than 6 months">More than 6 months</option>
+                              <option value="More than 1 year">More  than 1 year</option>
+                              <option value="More than 5 years">More than 5 years</option>
+                          </select>
+                              <div *ngIf="IllnessformErrors.DurationOfCurruntIllness" class="invalid-feedback">{{IllnessformErrors.DurationOfCurruntIllness}}</div>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="col-md-4">
+                    <div class="form-group row">
+                        <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Current Episode Number <span
+                                class="text-danger">*</span> </label>
+                        <div class="col-md-6">
+                          <select class="form-control" formControlName="CurruntEpisodeNumber" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.CurruntEpisodeNumber">
+                            <option disabled value="">Select Your Option</option>
+                            <option value="1">1</option>
+                            <option value="2"> 2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                           
+                        </select>
+                            <div *ngIf="IllnessformErrors.CurruntEpisodeNumber" class="invalid-feedback">{{IllnessformErrors.CurruntEpisodeNumber}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group row">
+                      <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Mode of Onset <span
+                              class="text-danger">*</span> </label>
+                      <div class="col-md-6">
+                        <select class="form-control" formControlName="ModeOfOnset" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.ModeOfOnset">
+                          <option disabled value="">Select Your Option</option>
+                          <option value="Abrupt (Within 48 Hours or less)">Abrupt (Within 48 Hours or less)</option>
+                          <option value="Acute (Within 2 Weeks or less)"> Acute (Within 2 Weeks or less)</option>
+                          <option value="Sub-Acute (2 Weeks - 1 Month)">Sub-Acute (2 Weeks - 1 Month)</option>
+                          <option value="Insidious (More than 1 Month)">Insidious (More than 1 Month)</option>
+                         
+                         
+                      </select>
+                          <div *ngIf="IllnessformErrors.ModeOfOnset" class="invalid-feedback">{{IllnessformErrors.ModeOfOnset}}</div>
+                      </div>
+                  </div>
+              </div>
+                  
+              <div class="col-md-4">
+                <div class="form-group row">
+                    <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Course <span
+                            class="text-danger">*</span> </label>
+                    <div class="col-md-6">
+                      <select class="form-control" formControlName="Course" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.Course">
+                                <option disabled value="">Select Your Option</option>
+                                <option value="Continous">Continous</option>
+                                <option value=" Episodic"> Episodic</option>
+                                <option value="Fluctuating">Fluctuating</option>
+                                <option value="Improving on Madication">Improving on Madication</option>
+                       
+                       
+                    </select>
+                        <div *ngIf="IllnessformErrors.Course" class="invalid-feedback">{{IllnessformErrors.Course}}</div>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="col-md-4">
+              <div class="form-group row">
+                  <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Predisposing Factors <span
+                          class="text-danger">*</span> </label>
+                  <div class="col-md-6">
+                    <select (change)="PredisposingFactorsPresent(Illness.value)" class="form-control" formControlName="PredisposingFactors" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.PredisposingFactors">
+                     
+                      <option disabled value="">Select Your Option</option>
+                      <option value="Present">Present</option>
+                      <option value="Absent"> Absent</option>    
+                     
+                     
+                  </select>
+              
+                    <input *ngIf="PredisposingFactorsPresentvar" type="text" class="form-control" placeholder="Enter something">
+               
+                  
+                      <div *ngIf="IllnessformErrors.PredisposingFactors" class="invalid-feedback">{{IllnessformErrors.PredisposingFactors}}</div>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="form-group row">
+                <label for="Vendor" class="col-md-4 col-form-label text-md-right"> Precipitating Factors <span
+                        class="text-danger">*</span> </label>
+                <div class="col-md-6">
+                  <select (change)="PrecipitatingFactorsPresent(Illness.value)" class="form-control" formControlName="PrecipatingFactors" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.PrecipatingFactors">
+                   
+                    <option disabled value="">Select Your Option</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent"> Absent</option>    
+                   
+                   
+                </select>
+                <input *ngIf="PrecipitatingFactorsPresentvar" type="text" class="form-control" placeholder="Enter something">
+                    <div *ngIf="IllnessformErrors.PrecipatingFactors" class="invalid-feedback">{{IllnessformErrors.PrecipatingFactors}}</div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="form-group row">
+              <label for="Vendor" class="col-md-4 col-form-label text-md-right">Perpetuating Factors<span
+                      class="text-danger">*</span> </label>
+              <div class="col-md-6">
+                <select (change)="PerpetuatingFactorsPresent(Illness.value)" class="form-control" formControlName="PrepetuatingFactors" class="form-control" (blur)="IllnesslogValidationMessages()" [class.is-invalid]="IllnessformErrors.PrepetuatingFactors">
+                
+                  <option disabled value="">Select Your Option</option>
+                  <option value="Present">Present</option>
+                  <option value="Absent"> Absent</option>    
+                 
+                 
+              </select>
+              <input *ngIf="PerpetuatingFactorsPresentvar" type="text" class="form-control" placeholder="Enter something">
+                  <div *ngIf="IllnessformErrors.PrepetuatingFactors" class="invalid-feedback">{{IllnessformErrors.PrepetuatingFactors}}</div>
+              </div>
+          </div>
+          
+      </div>
+                
+              </div>
+              <div class="card-footer">
+                <div class="col-md-2 offset-md-10">
+                    <input type="submit" class="btn btn-primary btn-sm btn-block" value="save"    />
+                </div>
+            </div>
+              </form>
+              
+          
+            </mat-expansion-panel>
+  
+  
+  
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>History</mat-expansion-panel-header>
+              
+            <mat-expansion-panel [formGroup]="HistoryOfPresentIllnessForm"  (ngSubmit)="HistoryOfPresentIllnessFormSubmit(HistoryOfPresentIllnessForm.value)"  >
+              <mat-expansion-panel-header>History of present Illness</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">History of present Illness</label>
+                <input type="text" formControlName="history"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" value="save" (click)="HistoryOfPresentIllnessFormSubmit(HistoryOfPresentIllnessForm.value)"  class="btn btn-success" >
+              </div>
+              
+            </mat-expansion-panel>
+            <!-- <mat-expansion-panel [formGroup]="HistoryOfPastIllnessForm"  (ngSubmit)="HistoryOfPastIllnessFormSubmit(HistoryOfPastIllnessForm.value)"   > 
+              <mat-expansion-panel-header>History of Past Illness</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">History of present Illness</label>
+                <input type="text" formControlName="history"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="submit" (click)="HistoryOfPastIllnessFormSubmit(HistoryOfPastIllnessForm.value)"  value="save" class="btn btn-success" >
+              </div>
+              
+            </mat-expansion-panel> -->
+            <mat-expansion-panel [formGroup]="HistoryOfModeOfIntakeForm"  (ngSubmit)="HistoryOfModeOfIntakeFormSubmit(HistoryOfModeOfIntakeForm.value)" >
+              <mat-expansion-panel-header>History of Past Illness</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">Psychiatric History (Duration, Number of Episode, Similarity with Present Illness)</label>
+                <input type="text"
+                  class="form-control" formControlName="PsychiatricHistory"  name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Medical/Surgical History</label>
+                <input type="text" formControlName="MedicalcHistory"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button"  (click)="HistoryOfModeOfIntakeFormSubmit(HistoryOfModeOfIntakeForm.value)"  value="save" class="btn btn-success" >
+              </div>
+              
+            </mat-expansion-panel>
+            <mat-expansion-panel [formGroup]="TreatementHostoryForm"  (ngSubmit)="TreatementHostoryFormSubmit(TreatementHostoryForm.value)" >
+              <mat-expansion-panel-header>Treatement History</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">Present Treatement History</label>
+                <input type="text" formControlName="PresentTreatementHistory"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Past Treatement History</label>
+                <input type="text" formControlName="PastTreatementHistory"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" (click)="TreatementHostoryFormSubmit(TreatementHostoryForm.value)"  value="save" class="btn btn-success" >
+              </div>
+              
+              
+            </mat-expansion-panel  >
+            <mat-expansion-panel [formGroup]="FamilyHistoryForm"  (ngSubmit)="FamilyHistoryFormSubmit(FamilyHistoryForm.value)" >
+              <mat-expansion-panel-header>Family History</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">upload Family tree</label>
+                <input type="file" (change)="uploadFamilyTree($event)"  placeholder="Select Profile Photo" name=""   id="">
+              </div>
+              <div class="form-group">
+                <label for="">Family History of Mental illness or Drug Addiction</label>
+                <input type="text" formControlName="mental"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Family Environment History</label>
+                <input type="text" formControlName="environment"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Family Attitude History</label>
+                <input type="text" formControlName="attitute"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Living Condition History</label>
+                <input type="text" formControlName="living"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" (click)="FamilyHistoryFormSubmit(FamilyHistoryForm.value)"  value="save" class="btn btn-success" >
+              </div>
+              
+            </mat-expansion-panel>
+            <mat-expansion-panel [formGroup]="PersonalHistoryForm"  (ngSubmit)="PersonalHistoryFormSubmit(PersonalHistoryForm.value)" >
+              <mat-expansion-panel-header>Personal History</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">Birth History</label>
+                <input type="text" formControlName="Birth"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Immunization History</label>
+                <input type="text"  formControlName="Immunization"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Development History</label>
+                <input type="text" formControlName="Development"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Education History</label>
+                <input type="text" formControlName="Education"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Occupation History</label>
+                <input type="text" formControlName="Occupation"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">Marrital History</label>
+                <input type="text" formControlName="Marrital"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Sexual History</label>
+                <input type="text" formControlName="Sexual"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Menstrual and obstetric History(Females)</label>
+                <input type="text" formControlName="Menstrualandobstetric"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" (click)="PersonalHistoryFormSubmit(PersonalHistoryForm.value)"  value="save" class="btn btn-success" >
+              </div>
+             
+              
+            </mat-expansion-panel>
+            <mat-expansion-panel [formGroup]="SubstanceHistoryForm"  (ngSubmit)="SubstanceHistoryFormSubmit(SubstanceHistoryForm.value)" >
+              <mat-expansion-panel-header>Substance History</mat-expansion-panel-header>
+  
+              <div class="form-group">
+                <label for="">History of choise of Substance</label>
+                <input type="text" formControlName="HistoryOfChoiseOfSubstance"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">History of Total Duration of Use</label>
+                <input type="text" formControlName="HistoryOfTotalDurationOfUse"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">History of Duration of Regular Use</label>
+                <input type="text" formControlName="HistoryOfDurationOfRegularUse"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">History of Daily Intake (Amount/No.)</label>
+                <input type="text" formControlName="HistoryOfDailyIntake"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">History of last Intake of Drug (Day/time and Quantity of the drug)</label>
+                <input type="text" formControlName="HistoryOfLastIntakeOfDrug"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" (click)="SubstanceHistoryFormSubmit(SubstanceHistoryForm.value)" value="save" class="btn btn-success" >
+              </div>
+             
+            </mat-expansion-panel>
+            <mat-expansion-panel [formGroup]="LegalHistoryForm"  (ngSubmit)="LegalHistoryFormSubmit(LegalHistoryForm.value)" >
+              <mat-expansion-panel-header>Legal History</mat-expansion-panel-header>
+              <div class="form-group">
+                <label for="">H/o Homicide/Suicide Attempts If yes, specify the number of attempt and method.</label>
+                <input type="text"  formControlName="HomicideAttempt"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                 
+              </div>
+              <div class="form-group">
+                <label for="">Pre-morbid personality</label>
+                <input type="text" formControlName="preMorbidpersonality"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="button" (click)="LegalHistoryFormSubmit(LegalHistoryForm.value)" value="save" class="btn btn-success" >
+              </div>
+              
+            </mat-expansion-panel>
+  
+            </mat-expansion-panel>
+  
+  
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>Mental Status Examination </mat-expansion-panel-header>
+              
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>General Appearance, Attitude & Behaviour </mat-expansion-panel-header>
+              <table [formGroup]="GeneralAppearanceAttitudeBehaviourForm"  (ngSubmit)="GeneralAppearanceAttitudeBehaviourFormSubmit(GeneralAppearanceAttitudeBehaviourForm.value)" class="table  table-inverse table-responsive">
+                  <tbody>
+                    <tr>
+                      <td>Appearance</td>
+                      <td>
+                       <mat-radio-group  formControlName="Appearance" aria-label="Select an option">
+                            
+                            <mat-radio-button value="Looking one's Age">Looking one's Age</mat-radio-button>
+                            <mat-radio-button value="Older">Older</mat-radio-button>
+                            <mat-radio-button value="Younger">Younger</mat-radio-button>
+                            <mat-radio-button value="Appropriate">Appropriate</mat-radio-button>
+                            <mat-radio-button value="Inappropriate">Inappropriate</mat-radio-button>
+  
+                        </mat-radio-group>
+                      </td>
+               
+                    </tr>
+                    <tr>
+                      <td scope="row">Level of Grooming</td>
+                      <td>
+                      
+                        <mat-radio-group formControlName="LevelofGrooming" aria-label="Select an option">
+                            
+                            <mat-radio-button value="Appropriate">Appropriate</mat-radio-button>
+                            <mat-radio-button value="Unkempt">Unkempt</mat-radio-button>
+                            <mat-radio-button value="Over Dressed">Over Dressed</mat-radio-button>
+                            <mat-radio-button value="Without Clothes">Without Clothes</mat-radio-button>
+                          
+  
+                        </mat-radio-group>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td scope="row">Level of Cleanliness</td>
+                      <td>
+                          <mat-radio-group formControlName="LevelofCleanliness" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Adequate">Adequate</mat-radio-button>
+                              <mat-radio-button value="Inadequate">Inadequate</mat-radio-button>
+                              <mat-radio-button value="Overtly Clean">Overtly Clean</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Level of Consciousness</td>
+                      <td>
+                         <mat-radio-group formControlName="LevelofConsciousness" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Fully consciousness and alter">Fully consciousness and alter</mat-radio-button>
+                              <mat-radio-button value="Drowsy">Drowsy</mat-radio-button>
+                              <mat-radio-button value="Stuporose">Stuporose</mat-radio-button>
+                              <mat-radio-button value="Comatose">Comatose</mat-radio-button>
+                              <mat-radio-button value="Consciousness">Consciousness</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Gait</td>
+                      <td>
+                          <mat-radio-group formControlName="Gait" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Swaying">Swaying</mat-radio-button>
+                              <mat-radio-button value="Short Stepping">Short Stepping</mat-radio-button>
+                              <mat-radio-button value="Waddling">Waddling</mat-radio-button>
+                           
+    
+                          </mat-radio-group> 
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Posture</td>
+                      <td>
+                          <mat-radio-group formControlName="Posture" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Erect">Erect</mat-radio-button>
+                              <mat-radio-button value="Swaying">Swaying</mat-radio-button>
+                              <mat-radio-button value="Short Stepping">Short Stepping</mat-radio-button>
+                              <mat-radio-button value="Waddling">Waddling</mat-radio-button>
+                           
+    
+                          </mat-radio-group> 
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Mode of Entry</td>
+                      <td>
+                          <mat-radio-group formControlName="ModeOfEntry" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Came Willingly">Came Willingly</mat-radio-button>
+                              <mat-radio-button value="Persuaded">Persuaded</mat-radio-button>
+                              <mat-radio-button value="Short Stepping">Brought using Physical force</mat-radio-button>
+                              
+                           
+    
+                          </mat-radio-group>                   
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Cooperative</td>
+                      <td>
+                          <mat-radio-group formControlName="Cooperative" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Cooperative">Cooperative</mat-radio-button>
+                              <mat-radio-button value="Persuaded">Persuaded</mat-radio-button>
+                              <mat-radio-button value="Partially Co operative">Partially Co operative</mat-radio-button>
+                              <mat-radio-button value="Un-Coorporative">Un-Coorporative</mat-radio-button>
+                   
+                           
+    
+                          </mat-radio-group>                   
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Eye to Eye Contact</td>
+                      <td>
+                          <mat-radio-group formControlName="EyetoEyeContact" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Maintained">Maintained</mat-radio-button>
+                              <mat-radio-button value="Difficult">Difficult</mat-radio-button>
+                              <mat-radio-button value="Not Maintained">Not Maintained</mat-radio-button>
+                              <mat-radio-button value="Partially Maintened">Partially Maintened</mat-radio-button>
+                              
+                           
+    
+                          </mat-radio-group>                   
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Rapport</td>
+                      <td>
+                        
+                          <mat-radio-group formControlName="Rapport" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Establish">Establish</mat-radio-button>
+                              <mat-radio-button value="Difficult to Establish">Difficult to Establish</mat-radio-button>
+                              <mat-radio-button value="Workable Rapport">Workable Rapport</mat-radio-button>
+                              <mat-radio-button value="Not Established">Not Established</mat-radio-button>
+                              <mat-radio-button value="Easy to Establish">Easy to Established</mat-radio-button>
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Gesturing</td>
+                      <td>
+                      
+                          <mat-radio-group formControlName="Gesturing" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Exaggerated">Exaggerated</mat-radio-button>
+                              <mat-radio-button value="Odd">Odd</mat-radio-button>
+                             
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Other Movements</td>
+                      <td>
+                          <mat-radio-group formControlName="OtherMovements" aria-label="Select an option">
+                            
+                              <mat-radio-button *ngIf="!VarCheckPAOtherMovements"  value="Absent">Absent</mat-radio-button>
+                              <mat-radio-button *ngIf="!VarCheckPAOtherMovements;else OtherMovementsPresent" (click)="CheckPAOtherMovements(GeneralAppearanceAttitudeBehaviourForm.OtherMovements)" value="Present">Present</mat-radio-button>
+                              
+                           <ng-template #OtherMovementsPresent>
+                            <mat-radio-button value="Mannerisms">Mannerisms</mat-radio-button>
+                            <mat-radio-button value="Streotypes">Streotypes</mat-radio-button>
+                            <mat-radio-button value="Tremors">Tremors</mat-radio-button>
+                            <mat-radio-button value="EPS">EPS</mat-radio-button>
+                            <mat-radio-button value="Preseveration">Preseveration</mat-radio-button>
+                           
+                           </ng-template>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+               
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Other Catatonic Phenomenon</td>
+                      <td>
+                          <mat-radio-group formControlName="otherCatatolicPhemenon" aria-label="Select an option">
+                            
+                           
+                              
+                            <mat-radio-button *ngIf="!VarCheckPAOtherCatatonicPhenomenonMovements"   value="Absent">Absent</mat-radio-button>
+                            <mat-radio-button *ngIf="!VarCheckPAOtherCatatonicPhenomenonMovements;else OtherCatatonicMovementsPresent" (click)="CheckPAOtherCatatonicPhenomenonMovements(GeneralAppearanceAttitudeBehaviourForm.otherCatatolicPhemenon)" value="Present">Present</mat-radio-button>
+                              <ng-template #OtherCatatonicMovementsPresent>
+                                
+                                <mat-radio-button value="Automatic Obedience">Automatic Obedience</mat-radio-button>
+                                <mat-radio-button value="Negativism">Negativism</mat-radio-button>
+                                <mat-radio-button value="Excessive Cooperation">Excessive Cooperation</mat-radio-button>
+                                <mat-radio-button value="Waxy Flexibility">Waxy Flexibility</mat-radio-button>
+                                <mat-radio-button value="Echoproxia">Echoproxia</mat-radio-button>
+                                <mat-radio-button value="Echolalia">Echolalia</mat-radio-button>
+                               </ng-template>
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+                    <td><input type="submit" value="Save" (click)="GeneralAppearanceAttitudeBehaviourFormSubmit(GeneralAppearanceAttitudeBehaviourForm.value)"  class="btn btn-danger"  ></td>
+                  </tbody>
+              </table>
+            </mat-expansion-panel>
+            
+  
+            <mat-expansion-panel  [formGroup]="PsychomotorActivitySpeechForm"  (ngSubmit)="PsychomotorActivitySpeechSubmit(PsychomotorActivitySpeechForm.value)" >
+              <mat-expansion-panel-header>Psychomotor Activity & Speech </mat-expansion-panel-header>
+              <h2>PSYCHOMOTOR</h2>
+              <table class="table table-hover table-inverse table-responsive">
+                  <tbody>
+                    <tr>
+                      <td scope="row">Psychomotor Activity</td>
+                      <td>
+                        <mat-radio-group formControlName="PsychomotorActivity" aria-label="Select an option">
+                            
+                           
+                          <mat-radio-button *ngIf="varPsychomotorActivity;else editttvarPsychomotorActivity" value="Normal">Normal</mat-radio-button>
+                          <mat-radio-button *ngIf="varPsychomotorActivity" (click)="changeIncreasePsychomotorActivity()" value="Increased">Increased</mat-radio-button>
+                          <mat-radio-button *ngIf="varPsychomotorActivity" value="Decreased">Decreased</mat-radio-button>
+                       <ng-template #editttvarPsychomotorActivity>
+                        <mat-radio-button value="Restlessness">Restlessness</mat-radio-button>
+                        <mat-radio-button value="Agilation">Agilation</mat-radio-button>
+                        <mat-radio-button value="Excitement">Excitement</mat-radio-button>
+                       </ng-template>
+                       
+  
+                      </mat-radio-group>
+                      </td>
+                      
+                    </tr>
+                  </tbody>
+              </table>
+              <h2>SPEECH</h2>
+              <table class="table table-hover table-inverse table-responsive">
+                  <tbody>
+                    <tr>
+                      <td scope="row">Initiation</td>
+                      <td>
+                        <mat-radio-group formControlName="Initiation" aria-label="Select an option">
+                            
+                           
+                          <mat-radio-button value="Spontaneous">Spontaneous</mat-radio-button>
+                          <mat-radio-button value="Speaks when Spoken to">Speaks when Spoken to</mat-radio-button>
+                          <mat-radio-button value="Minimal">Minimal</mat-radio-button>
+                          <mat-radio-button value="Mute">Mute</mat-radio-button>
+                       
+  
+                      </mat-radio-group>
+                      
+                      </td>
+               
+                    </tr>
+                    <tr>
+                      <td scope="row">Reaction time</td>
+                      <td>
+                          <mat-radio-group formControlName="ReactionTime" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Increased">Increased</mat-radio-button>
+                              <mat-radio-button value="Decreased">Decreased</mat-radio-button>
+                              <mat-radio-button value="Difficult to Assess">Difficult to Assess</mat-radio-button>
+                           
+      
+                          </mat-radio-group>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td scope="row">Speed</td>
+                      <td>
+                          <mat-radio-group formControlName="Speed" aria-label="Select an option">
+                            
+                            <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Adequate">Adequate</mat-radio-button>
+                              <mat-radio-button value="Inadequate">Inadequate</mat-radio-button>
+                            <mat-radio-button value="Slow">Slow</mat-radio-button>
+                            <mat-radio-button value="Rapid">Rapid</mat-radio-button>
+                              <mat-radio-button value="Overtly Clean">Overtly Clean</mat-radio-button>
+                              <mat-radio-button value="Not Clear">Not Clear</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <!-- <tr>
+                      <td scope="row">Level of Consciousness</td>
+                      <td>
+                          <mat-radio-group formControlName="LevelofConsciousnessinSpeech" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Slow">Slow</mat-radio-button>
+                              <mat-radio-button value="Rapid">Rapid</mat-radio-button>
+                              <mat-radio-button value="Not Clear">Not Clear</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr> -->
+  
+                    <tr>
+                      <td scope="row">Output</td>
+                      <td>
+                          <mat-radio-group formControlName="Output" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Increased">Increased</mat-radio-button>
+                              <mat-radio-button value="Decreased">Decreased</mat-radio-button>
+                              <mat-radio-button value="Variable">Variable</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Pressure of Speech</td>
+                      <td>
+                          <mat-radio-group formControlName="PressureOfSpeech" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Absent">Absent</mat-radio-button>
+                              <mat-radio-button value="Present">Present</mat-radio-button>
+                              
+                           
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Volume</td>
+                      <td>
+                          <mat-radio-group formControlName="Volume" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Increased">Increased</mat-radio-button>
+                              <mat-radio-button value="Decreased">Decreased</mat-radio-button>
+                              
+                           
+    
+                          </mat-radio-group>                    </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Tone</td>
+                      <td>
+                          <mat-radio-group formControlName="Tone" aria-label="Select an option">
+                            
+                           
+                              <mat-radio-button value="Normal Variation">Normal Variation</mat-radio-button>
+                              <mat-radio-button value="Monotonous">Monotonous</mat-radio-button>
+                              
+    
+                          </mat-radio-group>
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Manner</td>
+                      <td>
+                          <mat-radio-group formControlName="Manner" aria-label="Select an option">
+                            
+                              <mat-radio-button value="Normal">Normal</mat-radio-button>
+                              <mat-radio-button value="Highly Formal">Highly Formal</mat-radio-button>
+                              <mat-radio-button value="Inappropriately Familiar">Inappropriately Familiar</mat-radio-button>
+                              
+    
+                          </mat-radio-group>
+                     
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Relavance</td>
+                      <td>
+                          <mat-radio-group formControlName="Relavance" aria-label="Select an option">
+                            
+                           
+                              
+                              <mat-radio-button value="Fully Relevant">Fully Relevant</mat-radio-button>
+                              <mat-radio-button value="Some time Off Target">Some time Off Target</mat-radio-button>
+                              <mat-radio-button value="Irrelevant">Irrelevant</mat-radio-button>
+                           
+    
+                          </mat-radio-group>
+                      
+  
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Coherence</td>
+                      <td>
+                          <mat-radio-group formControlName="Coherence" aria-label="Select an option">
+                            
+                           
+                              
+                              <mat-radio-button value="Fully Coherent">Fully Coherent</mat-radio-button>
+                              <mat-radio-button value="Over Elaborate Digressive">Over Elaborate Digressive</mat-radio-button>
+                              <mat-radio-button value="Some Loosing of association">Some Loosing of association</mat-radio-button>
+                              <mat-radio-button value="Incoherent">Incoherent</mat-radio-button>
+                                                       
+    
+                          </mat-radio-group>
+  
+                      </td>
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Other</td>
+                      <td>
+                          <mat-radio-group formControlName="Other" aria-label="Select an option">
+                            
+                            <mat-radio-button *ngIf="!VarOtherPsychomotor"   value="Absent">Absent</mat-radio-button>
+                            <mat-radio-button *ngIf="!VarOtherPsychomotor;else OtherPsychomotorActivity" (click)="CheckVarOtherPsychomotor(PsychomotorActivitySpeechForm.Other)" value="Present">Present</mat-radio-button>
+                              <ng-template #OtherPsychomotorActivity>
+                                
+                                <mat-radio-button value="Rhyming">Rhyming</mat-radio-button>
+                              <mat-radio-button value="Punning">Punning</mat-radio-button>
+                              <mat-radio-button value="Echolalia">Echolalia</mat-radio-button>
+                              <mat-radio-button value="Preservation">Preservation</mat-radio-button>
+                              <mat-radio-button value="Neologism">Neologism</mat-radio-button>
+                               </ng-template>
+                           
+                             
+                           
+    
+                          </mat-radio-group>
+                      </td>
+               
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">Provide Examples</td>
+                      <td>
+                       <textarea type="text" name="" formControlName="example"  class="form-control"  id=""></textarea>
+                      </td>
+                    </tr>
+                    <td><input type="button" value="Save" (click)="PsychomotorActivitySpeechSubmit(PsychomotorActivitySpeechForm.value)"   class="btn btn-primary"  ></td>
+                  </tbody>
+              </table>
+            </mat-expansion-panel>
+  
+  
+            <mat-expansion-panel [formGroup]="AffectForm"  (ngSubmit)="AffectFormSubmit(AffectForm.value)" >
+                <mat-expansion-panel-header>Affect</mat-expansion-panel-header>
+                <table class="table table-hover table-inverse table-responsive">
+                    <tbody>
+                      <tr>
+                        <td scope="row">Subjective</td>
+                        <td>
+                         <textarea formControlName="Subjective"  class="form-control"  ></textarea>
+                        
+                        </td>
+                 
+                      </tr>
+                      <tr>
+                        <td scope="row">Objective</td>
+                        <td>
+                            <textarea class="form-control" formControlName="Objectivetext"  ></textarea>
+                            <mat-radio-group formControlName="Objective" aria-label="Select an option">
+                                <mat-radio-button value="Normal">Normal</mat-radio-button>
+                                <mat-radio-button value="Depressed">Depressed</mat-radio-button>
+                                <mat-radio-button value="Anxious">Anxious</mat-radio-button>
+                                <mat-radio-button value="Blunted">Blunted</mat-radio-button>
+                                <mat-radio-button value="Flattened">Flattened</mat-radio-button>
+                                <mat-radio-button value="Euphoric">Euphoric</mat-radio-button>
+                                <mat-radio-button value="Inappropriate">Inappropriate</mat-radio-button>
+    
+                              </mat-radio-group>
+                         
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        <td scope="row">Congruence</td>
+                        <td>
+                            <mat-radio-group formControlName="Congruence" aria-label="Select an option">
+                            
+                           
+                                
+                                <mat-radio-button value="Congruent">Congruent</mat-radio-button>
+                                <mat-radio-button value="Communable">Communable</mat-radio-button>
+                                <mat-radio-button value="Incongruent">Incongruent</mat-radio-button>
+                                <mat-radio-button value="Appropriate">Appropriate</mat-radio-button>
+                             
+      
+                            </mat-radio-group>
+                        </td>
+                      </tr>
+    
+                      <tr>
+                        <td scope="row">Stability</td>
+                        <td>
+                            <mat-radio-group formControlName="Stability" aria-label="Select an option">
+                            
+                           
+                                
+                                <mat-radio-button value="Stable">Stable</mat-radio-button>
+                                <mat-radio-button value="Unstable">Unstable</mat-radio-button>
+                             
+      
+                            </mat-radio-group>
+                      
+                        </td>
+                      </tr>
+    
+                      <tr>
+                        <td scope="row">Range</td>
+                        <td>
+                            <mat-radio-group formControlName="Range" aria-label="Select an option">
+                            
+                           
+                                <mat-radio-button value="Full Range">Full Range</mat-radio-button>
+                                <mat-radio-button value="Restricted towards Sadness">Restricted towards Sadness</mat-radio-button>
+                                <mat-radio-button value="Restricted towards Elation & Constricted">Restricted towards Elation & Constricted</mat-radio-button>
+                        
+                             
+      
+                            </mat-radio-group>
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input type="submit" value="Save" class="btn btn-primary" (click)="AffectFormSubmit(AffectForm.value)" >
+                        </td>
+                      </tr>
+  
+                      
+                    </tbody>
+                </table>
+               
+              </mat-expansion-panel>
+  
+  
+            <mat-expansion-panel [formGroup]="ThoughtContentForm"  (ngSubmit)="ThoughtContentFormSubmit(ThoughtContentForm.value)" >
+            <mat-expansion-panel-header>Thought and Thought Content</mat-expansion-panel-header>
+            <h2>THOUGHT</h2>
+            <table class="table table-bordered table-inverse table-responsive">
+                <tbody>
+                  <tr>
+                    <td scope="row">Stream</td>
+                    <td>
+                      <label  *ngFor="let order of Streamorders; let i = index">
+                        <input type="checkbox" (change)="streamChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+  
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                    <td scope="row">Form</td>
+                    <td>
+                       
+                        <label  *ngFor="let order of Formorders; let i = index">
+                          <input type="checkbox" (change)="onChange(order.name, $event.target.checked)" > 
+                          {{order.name}}
+                        </label>
+  
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Provide Examples</td>
+                    <td>
+                      <textarea formControlName="FormExample"  class="form-control"  ></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <h2>THOUGHT CONTENT</h2>
+            <table class="table table-bordered table-inverse table-responsive">
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <label  *ngFor="let order of ThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="ThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Provide Examples</td>
+                    <td>
+                      <textarea formControlName="ThoughtContentExample"  class="form-control"  ></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <table class="table table-hover table-inverse table-bordered">
+                <tbody>
+                  <tr>
+                    <td scope="row">
+                      <label  *ngFor="let order of FirstThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="FirstThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>               
+                       </td>
+                    <td>
+                      <label  *ngFor="let order of SecondThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="SecondThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>          
+                    </td>
+                    <td>
+                      <label  *ngFor="let order of ThirdThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="ThirdThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label> 
+                       
+                    </td>
+                    <td>
+                      <label  *ngFor="let order of FourthThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="FourthThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label> 
+                    </td>
+                    <td>
+                      <label  *ngFor="let order of FifthThoughtContentOrder; let i = index">
+                        <input type="checkbox" (change)="FifthThoughtContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label> 
+                       
+                    </td>
+                  </tr>
+                  <tr>
+                   
+                    <td>Provide Examples</td>
+                    <td>
+                        <textarea formControlName ="ThoughtContentExample2"  class="form-control"  ></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="button" value="Save" class="btn btn-primary"  (click)="ThoughtContentFormSubmit(ThoughtContentForm.value)" >
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            </mat-expansion-panel>
+  
+  
+            <mat-expansion-panel  [formGroup]="PossessionForm"  (ngSubmit)="PossessionFormSubmit(PossessionForm.value)" >
+            <mat-expansion-panel-header>Possession</mat-expansion-panel-header>
+            <h2>Obsessive Compulsive Phenomenon</h2>
+            <table class="table table-inverse table-inverse table-responsive">
+                <tbody>
+                  <tr>
+                    <td scope="row">Obsession</td>
+                    <td>
+                      <label  *ngFor="let order of ObsessionContentOrder; let i = index">
+                        <input type="checkbox" (change)="ObsessionContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label> 
+                       
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                      <td scope="row">Compulsion</td>
+                      <td>
+                        <label  *ngFor="let order of CompulsionContentOrder; let i = index">
+                          <input type="checkbox" (change)="CompulsionContentChange(order.name, $event.target.checked)" > 
+                          {{order.name}}
+                        </label> 
+                      </td>
+                      
+                    </tr>
+                 <tr>
+                   <td>Provide Examples</td>
+                   <td>
+                      <textarea formControlName="ObsessiveCompulsive" class="form-control"  ></textarea>
+                   </td>
+                 </tr>
+                </tbody>
+            </table>
+            <h2>Thought  Alienation Phenomenon</h2>
+            <table class="table table-inverse table-inverse table-responsive">
+                <tbody>
+                  <tr>
+                    <td scope="row">Thought Alienation Phenomenon</td>
+                    <td>
+                      <mat-radio-group formControlName="ThoughtAlienationPhenomenon"  aria-label="Select an option">
+                            
+                        <mat-radio-button  *ngIf="!varthoughtalienatioPhenomenonPresentC" value="Absent">Absent</mat-radio-button>
+                        <mat-radio-button *ngIf="!varthoughtalienatioPhenomenonPresentC;else thoughtalienatioPhenomenonPresent" (click)="thoughtalienatioPhenomenonPresentChange()" value="Present">Present</mat-radio-button>
+                                   
+                    </mat-radio-group>
+                      <ng-template #thoughtalienatioPhenomenonPresent>
+                        <label  *ngFor="let order of ThoughtAlienationPhenomenonContentOrder; let i = index">
+                          <input type="checkbox" (change)="ThoughtAlienationPhenomenonContentChange(order.name, $event.target.checked)" > 
+                          {{order.name}}
+                        </label>
+                      </ng-template>
+                        
+                    </td>
+                    
+                  </tr>
+                 
+                 <tr>
+                   <td>Provide Examples</td>
+                   <td>
+                      <textarea formControlName="ThoughtAlienationPhenomenonExample" class="form-control"  ></textarea>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <input type="button" value="Save" (click)="PossessionFormSubmit(PossessionForm.value)" class="btn btn-primary"  >
+                   </td>
+                 </tr>
+                </tbody>
+            </table>
+            </mat-expansion-panel>
+  
+            
+            <mat-expansion-panel  [formGroup]="PerceptionForm"  (ngSubmit)="PerceptionFormSubmit(PerceptionForm.value)" >
+              <mat-expansion-panel-header>Perception</mat-expansion-panel-header>
+              <h2></h2>
+              <table class="table table-inverse table-inverse table-responsive">
+                  <tbody>
+                    <tr>
+                      
+                      <td>
+                        <label  *ngFor="let order of Perception1ContentOrder; let i = index">
+                          <input type="checkbox" (change)="Perception1ContentChange(order.name, $event.target.checked)" > 
+                          {{order.name}}
+                        </label>
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                       
+                        <td>
+                          <label  *ngFor="let order of Perception2ContentOrder; let i = index">
+                            <input type="checkbox" (change)="Perception2ContentChange(order.name, $event.target.checked)" > 
+                            {{order.name}}
+                          </label>
+                        </td>
+                        
+                      </tr>
+                   <tr>
+                     
+                     <td>
+                     
+                      <label  *ngFor="let order of Perception3ContentOrder; let i = index">
+                        <input type="checkbox" (change)="Perception3ContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                     </td>
+                   </tr>
+                   <tr>
+                     <td>
+                       <textarea formControlName="PerceptionExample" class="form-control" placeholder="provide exampless"  ></textarea>
+                     </td>
+                   </tr>
+                   <tr>
+                     <td>
+                      <input type="button" value="Save" (click)="PerceptionFormSubmit(PerceptionForm.value)" class="btn btn-primary"  >
+                     </td>
+                   </tr>
+  
+                  </tbody>
+              </table>
+              
+              </mat-expansion-panel>
+  
+  
+              <mat-expansion-panel   [formGroup]="CognitiveFunctionForm"  (ngSubmit)="CognitiveFunctionFormSubmit(CognitiveFunctionForm.value)" >
+                <mat-expansion-panel-header>Cognitive Function</mat-expansion-panel-header>
+                <h2>Conscious Level</h2>
+                <table class="table table-inverse table-inverse table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>Conscious Level</td>
+                        <td>
+                            <mat-radio-group formControlName="ConsciousLevel" aria-label="Select an option">
+                            
+                           
+                                <mat-radio-button value="Conscious">Conscious</mat-radio-button>
+                                <mat-radio-button value="Drowsy">Drowsy</mat-radio-button>
+                                <mat-radio-button value="Stupor">Stupor</mat-radio-button>
+                                <mat-radio-button value="Unconscious">Unconscious</mat-radio-button>
+      
+                            </mat-radio-group>
+                        </td>
+                        
+                      </tr>
+                    </tbody>
+                </table>
+                <h2>Attention</h2>
+                <table class="table table-inverse table-inverse table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>Digit Forward
+                          <input type="text" name=""  formControlName="AttentionDigitForward" class="form-control" id="">
+                        </td>
+                        <td>
+                            <mat-radio-group formControlName="Attention" aria-label="Select an option">
+                                                              
+                                                            
+                                <mat-radio-button value="Aroused Easily">Aroused Easily</mat-radio-button>
+                                <mat-radio-button value="Aroused with Difficulty">Aroused with Difficulty</mat-radio-button>
+                                <mat-radio-button value="Not Aroused">Not Aroused</mat-radio-button>
+                            
+  
+                            </mat-radio-group>
+                           
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        <td>
+                          Digit Backward
+                          <input type="text" formControlName="AttentionDigitBackward"  name="" class="form-control" id="">
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                <h2>Concentration</h2>
+                <table class="table table-inverse table-inverse table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>Serial Substraction(100-7/40-3/20-1)
+                          <input   formControlName="ConcentrationSerialSubstraction" class="form-control" id="">
+                        </td>
+                        <td>
+                            <mat-radio-group formControlName="Concentration" aria-label="Select an option">
+                                                              
+                                                            
+                                <mat-radio-button value="Sustained Easily">Sustained Easily</mat-radio-button>
+                                <mat-radio-button value="Sustained with Difficulty">Sustained with Difficulty</mat-radio-button>
+                                <mat-radio-button value="Not Sustained">Not Sustained</mat-radio-button>
+                            
+  
+                            </mat-radio-group>
+                           
+                        </td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <h2>Orientation</h2>
+                <table border="1" class="table table-inverse table-inverse table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>Time
+                        </td>
+                        <td>
+                          <label  *ngFor="let order of OrientationTimeContentOrder; let i = index">
+                            <input type="checkbox" (change)="OrientationTimeContentChange(order.name, $event.target.checked)" > 
+                            {{order.name}}
+                          </label>
+                           
+                        </td>
+                        <td>
+                            <mat-radio-group formControlName="OrientationTimeCheck" aria-label="Select an option">
+                                                              
+                                                            
+                              
+                                <mat-radio-button value="Oriented">Oriented</mat-radio-button>
+                                <mat-radio-button value="Disoriented">Disoriented</mat-radio-button>
+  
+                              </mat-radio-group>
+                        </td>
+                        </tr>
+  
+                        <tr>
+                          <td>Place
+                          </td>
+                          <td>
+                            <label  *ngFor="let order of OrientationPlaceContentOrder; let i = index">
+                              <input type="checkbox" (change)="OrientationPlaceContentChange(order.name, $event.target.checked)" > 
+                              {{order.name}}
+                            </label>
+                             
+                          </td>
+                          <td>
+                              <mat-radio-group formControlName="OrientationPlaceCheck" aria-label="Select an option">
+                                                              
+                                                            
+                              
+                                 
+                                  <mat-radio-button value="Oriented">Oriented</mat-radio-button>
+                                  <mat-radio-button value="Disoriented">Disoriented</mat-radio-button>
+                                </mat-radio-group>
+                          </td>
+                          </tr>
+  
+                          <tr>
+                            <td>Person
+                            </td>
+                            <td>
+                              <label  *ngFor="let order of OrientationPersonContentOrder; let i = index">
+                                <input type="checkbox" (change)="OrientationPersonContentChange(order.name, $event.target.checked)" > 
+                                {{order.name}}
+                              </label>
+                              
+                               
+                            </td>
+                            <td>
+                                <mat-radio-group formControlName="OrientationPersonCheck" aria-label="Select an option">
+                                                              
+                                                            
+                              
+                                 
+                                    <mat-radio-button value="Oriented">Oriented</mat-radio-button>
+                                    <mat-radio-button value="Disoriented">Disoriented</mat-radio-button>
+                                  </mat-radio-group>
+                            </td>
+                            </tr>
+                    
+                    </tbody>
+                </table>
+                <h2>Memory</h2>
+                <table class="table table-hover table-inverse">
+                  <thead class="thead-inverse">
+                    <tr>
+                      
+                      <th>After 5 Minutes</th>
+                      <th>After 10 Minutes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                        <td>
+                          <textarea formControlName="RecentMemoryAfter5Mint" class="form-control" placeholder="Recent Immediat Memory after 5 Minutes Memory" ></textarea>
+                        </td>
+                        <td><textarea formControlName="RecentMemoryAfter10Mint" class="form-control"  placeholder="Recent Immediat Memory after 10 Minutes Memory" ></textarea></td>
+                      </tr>
+                     
+                    </tbody>
+                </table>
+                <h2>Recent Verbal Recall</h2>
+                <table class="table table-hover table-inverse">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th>Object</th>
+                      <th>After 5 Minutes</th>
+                      <th>After 10 Minutes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">3 Unrelated Objects</td>
+                        <td>
+                          <textarea formControlName="RecentVerbalRecall3ObjAfter5Minut" class="form-control" placeholder="3 Unrelated Objects Verbal Recall after 5 Minutes Memory" ></textarea>
+                        </td>
+                        <td><textarea formControlName="RecentVerbalRecall3ObjAfter10Minut" class="form-control"  placeholder="3 Unrelated Objects Verbal Recall after 10 Minutes Memory" ></textarea></td>
+                      </tr>
+                      <tr>
+                        <td scope="row">5 Unrelated Objects</td>
+                        <td><textarea formControlName="RecentVerbalRecall5ObjAfter5Minut" class="form-control"  placeholder="5 Unrelated Objects Verbal Recall after 5 Minutes Memory" ></textarea></td>
+                        <td>
+                          <textarea formControlName="RecentVerbalRecall5ObjAfter10Minut" class="form-control"  placeholder="5 Unrelated Objects Verbal Recall after 10 Minutes Memory" ></textarea>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+  
+                <h2>Recent Visual Recall</h2>
+                <table class="table table-hover table-inverse">
+                  <thead class="thead-inverse">
+                    <tr>
+                      
+                      <th>After 5 Minutes</th>
+                      <th>After 10 Minutes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                        <td>
+                          <textarea formControlName="RecentVisualRecallAfter5Minut" class="form-control" placeholder="Recent Visual Recall after 5 Minutes Memory" ></textarea>
+                        </td>
+                        <td><textarea formControlName="RecentVisualRecallAfter10Minut" class="form-control"  placeholder="Recent Visual Recall after 10 Minutes Memory" ></textarea></td>
+                      </tr>
+                     
+                    </tbody>
+                </table>
+                <h2>Remotes</h2>
+                <table class="table table-hover table-inverse">
+                    <tbody>
+                      <tr>
+                        <td scope="row">Personal Events</td>
+                        <td>
+                          <textarea formControlName="RemotePersonalEvents" class="form-control" placeholder="Remote Personal Events Memory" ></textarea>
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        <td scope="row">Impersonal Events</td>
+                        <td>
+                          <textarea formControlName="RemoteImPersonalEvents" class="form-control" placeholder="Remote Impersonal Events Memory" ></textarea>
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        <td scope="row">Illness Related Events</td>
+                        <td>
+                          <textarea formControlName="RemoteIllnessRelatedEvents" class="form-control" placeholder="Illness Related Events Memory" ></textarea>
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        <td>
+                          <input type="button" value="Save" (click)="CognitiveFunctionFormSubmit(CognitiveFunctionForm.value)" class="btn btn-primary"  >
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                
+                </mat-expansion-panel>
+  
+  
+            <mat-expansion-panel  [formGroup]="IntelligenceForm"  (ngSubmit)="IntelligenceFormSubmit(IntelligenceForm.value)" >
+            <mat-expansion-panel-header>Intelligence</mat-expansion-panel-header>
+            <table class="table table-hover table-inverse">
+                <tbody>
+                  <tr>
+                    <td scope="row">Comprehension</td>
+                    <td>
+                      <label  *ngFor="let order of IntelligenceComprehensionContentOrder; let i = index">
+                        <input type="checkbox" (change)="IntelligenceComprehensionContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                     
+                    </td>
+                    <td>
+                        <mat-radio-group formControlName="IntelligenceComprehensionCheck" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Intact">Impaired</mat-radio-button>
+                            <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                       
+                        
+  
+                        </mat-radio-group>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td scope="row">Vocabulary</td>
+                    <td>
+                      <label  *ngFor="let order of IntelligenceVocabularyContentOrder; let i = index">
+                        <input type="checkbox" (change)="IntelligenceVocabularyContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                     
+                    </td>
+                    <td>
+                        <mat-radio-group formControlName="IntelligenceVocabularyCheck" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Intact">Impaired</mat-radio-button>
+                            <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                       
+                        
+  
+                        </mat-radio-group>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td scope="row">General Fund of Information</td>
+                    <td>
+                      <label  *ngFor="let order of GeneralFundofInformationContentOrder; let i = index">
+                        <input type="checkbox" (change)="GeneralFundofInformationContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                     
+                    </td>
+                    <td>
+                        <mat-radio-group formControlName="GeneralFundofInformationCheck" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Intact">Normal</mat-radio-button>
+                            <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                       
+                        
+  
+                        </mat-radio-group>
+                    </td>
+                  </tr>
+  
+                  <tr>
+                    <td scope="row">Arithmetic Ability</td>
+                    <td>
+                      <label  *ngFor="let order of ArithmeticAbilityContentOrder; let i = index">
+                        <input type="checkbox" (change)="ArithmeticAbilityContentChange(order.name, $event.target.checked)" > 
+                        {{order.name}}
+                      </label>
+                     
+                    </td>
+                    <td>
+                        <mat-radio-group formControlName="ArithmeticAbilityCheck" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Normal">Normal</mat-radio-button>
+                            <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                       
+                        
+  
+                        </mat-radio-group>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Abstraction</td>
+                    <td>
+                        <mat-radio-group formControlName="Abstraction" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Intact">Intact</mat-radio-button>
+                            <mat-radio-button value="Concrete">Impaired</mat-radio-button>
+                            <mat-radio-button value="Mental Arithmetic">Mental Arithmetic</mat-radio-button>
+                            <mat-radio-button value="Written Sums">Written Sums</mat-radio-button>
+                       
+                        
+  
+                        </mat-radio-group>
+                     
+                    </td>
+                    
+                  </tr>
+  
+                  <tr>
+                    <td scope="row">Level of Abstraction</td>
+                    <td>
+                        <mat-radio-group formControlName="LevelOFAbstraction" aria-label="Select an option">
+                                                        
+                                                      
+                            <mat-radio-button value="Concreate level">Concreate level</mat-radio-button>
+                            <mat-radio-button value="Functional level">Functional level</mat-radio-button>
+                            <mat-radio-button value="Conceptual level">Conceptual level</mat-radio-button>
+                            
+                       
+                        
+  
+                        </mat-radio-group>
+                     
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                    <td>Interpretation of Proverb</td>
+                    <td>
+                      <textarea type="text" name="" formControlName="InterpretationofProverb"  placeholder="Interpretation of Proverb" class="form-control"  id=""></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Similarities between Paired Object</td>
+                    <td>
+                      <textarea type="text" name="" formControlName="SimilaritiesbetweenPairedObject" placeholder="Similarities between Paired Object"  class="form-control"  id=""></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Dissimilarities between Paired Object</td>
+                    <td>
+                      <textarea type="text" name="" formControlName="DIsSimilaritiesbetweenPairedObject" placeholder="Dissimilarities between Paired Object"  class="form-control"  id=""></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="button" value="Save" class="btn btn-primary" (click)="IntelligenceFormSubmit(IntelligenceForm.value)" >
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            </mat-expansion-panel>
+  
+  
+  
+            <mat-expansion-panel  [formGroup]="JudgementForm"  (ngSubmit)="JudgementFormSubmit(JudgementForm.value)"  >
+              <mat-expansion-panel-header>Judgement</mat-expansion-panel-header>
+              <table class="table table-hover table-inverse" >
+                <tr>
+                  <td>
+                    Perosnal
+                  </td>
+                  <td>Sense of Personal Capability or Worth and Planning of Future</td>
+                  <td>
+                      <mat-radio-group formControlName="JudgementPerosnal" aria-label="Select an option">
+                          <mat-radio-button value="Intact">Intact</mat-radio-button>
+                          <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                      </mat-radio-group>
+      
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Social
+                  </td>
+                  <td>Sense of What Social and Culturally Acceptable</td>
+                  <td>
+                      <mat-radio-group formControlName="JudgementSocial" aria-label="Select an option">
+                          <mat-radio-button value="Intact">Intact</mat-radio-button>
+                          <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                      </mat-radio-group>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Test
+                  </td>
+                  <td>
+                    Perception of Human Behaviour in Imaginary Situation
+                    <li>Fire Test</li>
+                    <li>Letter Test</li>
+                  </td>
+                  <td>
+                      <mat-radio-group formControlName="JudgementTest" aria-label="Select an option">
+                          <mat-radio-button value="Intact">Intact</mat-radio-button>
+                          <mat-radio-button value="Impaired">Impaired</mat-radio-button>
+                      </mat-radio-group>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="button" value="Save" class="btn btn-primary" (click)="JudgementFormSubmit(JudgementForm.value)"   >
+                  </td>
+                </tr>
+              </table>
+            </mat-expansion-panel>
+  
+  
+  
+            <mat-expansion-panel [formGroup]="InsightSubmit"  (ngSubmit)="InsightSubmitForm(InsightSubmit.value)" >
+              <mat-expansion-panel-header>Insight</mat-expansion-panel-header>
+              <table class="table table-hover table-inverse" >
+                <tr>
+                  <td>
+                    Awareness of Abnormal Behaviour/Experience
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="AwarenessofAbnormalBehaviourExperience" aria-label="Select an option">
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="May Be">May Be</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                      </mat-radio-group>
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>
+                    Attribution to Physical Cause
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="AttributiontoPhysicalCause" aria-label="Select an option">
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="May Be">May Be</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                      </mat-radio-group>
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Recognition of Personal Responsibility
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="RecognitionofPersonalResponsibility" aria-label="Select an option">
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="May Be">May Be</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                      </mat-radio-group> 
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Willingness to take Treatement
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="WillingnesstotakeTreatement" aria-label="Select an option">
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="May Be">May Be</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                      </mat-radio-group> 
+                  
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Grade
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="Grade" aria-label="Select an option">
+                          <mat-radio-button value="Grade 1">Grade 1</mat-radio-button>
+                          <mat-radio-button value="Grade 2">Grade 2</mat-radio-button>
+                          <mat-radio-button value="Grade 3">Grade 3</mat-radio-button>
+                          <mat-radio-button value="Grade 4">Grade 4</mat-radio-button>
+                          <mat-radio-button value="Grade 5">Grade 5</mat-radio-button>
+                          <mat-radio-button value="Grade 6">Grade 6</mat-radio-button>
+                         
+                      </mat-radio-group> 
+                 
+                  </td>
+                </tr>
+               <tr>
+                 <td>
+                   <input type="button" value="Save" class="btn btn-primary"  (click)="InsightSubmitForm(InsightSubmit.value)" >
+                 </td>
+               </tr>
+              </table>
+            </mat-expansion-panel>
+  
+  
+  
+            <mat-expansion-panel  [formGroup]="GeneralPhysicalExaminationForm"  (ngSubmit)="GeneralPhysicalExaminationFormSubmit(GeneralPhysicalExaminationForm.value)" >
+              <mat-expansion-panel-header>General Physical Examination</mat-expansion-panel-header>
+              <table class="table table-hover table-inverse" >
+                <tr>
+                  <td>
+                    Consciousness
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="GPEConsciousness" aria-label="Select an option">
+                          <mat-radio-button value="Conscious">Conscious</mat-radio-button>
+                          <mat-radio-button value="Drowsy">Drowsy</mat-radio-button>
+                          <mat-radio-button value="Stupor">Stupor</mat-radio-button>
+                          <mat-radio-button value="Confusion">Confusion</mat-radio-button>
+                          <mat-radio-button value="Coma">Coma</mat-radio-button>
+                      </mat-radio-group> 
+                   
+                  </td>
+                </tr>
+  
+                <tr>
+                  <td>
+                   Built
+                  </td>
+                 
+                  <td>
+                    <label  *ngFor="let order of GPEBuiltContentOrder; let i = index">
+                      <input type="checkbox" (change)="GPEBuiltContentChange(order.name, $event.target.checked)" > 
+                      {{order.name}}
+                    </label>
+                  
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                   Inspection
+                  </td>
+                 
+                  <td>
+                    <label  *ngFor="let order of GPEInspectionContentOrder; let i = index">
+                      <input type="checkbox" (change)="GPEInspectionContentChange(order.name, $event.target.checked)" > 
+                      {{order.name}}
+                    </label> 
+                
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Pluse
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="GPEPluse" aria-label="Select an option">
+                          <mat-radio-button value="Within Normal Limits">Within Normal Limits</mat-radio-button>
+                          <mat-radio-button value="Tachycardia">Tachycardia</mat-radio-button>
+                          <mat-radio-button value="Bradhycardia">Bradhycardia</mat-radio-button>
+                         
+                      </mat-radio-group> 
+                 
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Respiration
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="GPERespiration" aria-label="Select an option">
+                          <mat-radio-button value="Within Normal Limits">Within Normal Limits</mat-radio-button>
+                          <mat-radio-button value="Tachycardia">Tachycardia</mat-radio-button>
+                          <mat-radio-button value="Bradhycardia">Bradhycardia</mat-radio-button>
+                         
+                      </mat-radio-group> 
+                   
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Body Temperature
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="GPEBodyTemperature" aria-label="Select an option">
+                          <mat-radio-button value="Within Normal Limits">Within Normal Limits</mat-radio-button>
+                          <mat-radio-button value="Hyperthermia">Hyperthermia</mat-radio-button>
+                          <mat-radio-button value="Hypothemia">Hypothemia</mat-radio-button>
+                         
+                      </mat-radio-group> 
+               
+                  </td>
+                </tr>
+  
+  
+                <tr>
+                  <td>
+                    Blood Pressure
+                  </td>
+                 
+                  <td>
+                      <mat-radio-group formControlName="GPEBloodPressure" aria-label="Select an option">
+                          <mat-radio-button value="Within Normal Limits">Within Normal Limits</mat-radio-button>
+                          <mat-radio-button value="Hypertension">Hypertension</mat-radio-button>
+                          <mat-radio-button value="Hypotension">Hypotension</mat-radio-button>
+                         
+                      </mat-radio-group> 
+                   
+                  </td>
+                </tr>
+               
+              </table>
+              <h2>Systemic Examiniation</h2>
+              <table class="table table-hover table-inverse table-responsive">
+                
+                  <tbody>
+                    <tr>
+                      <td scope="row">1. Respiratory System </td>
+                      <td>
+                          <mat-radio-group formControlName="RespiratorySystem" aria-label="Select an option">
+                              <mat-radio-button value="No Abnormality Detected">No Abnormality Detected</mat-radio-button>
+                              <mat-radio-button value="Abnormality Present">Abnormality Present</mat-radio-button>
+                            
+                          </mat-radio-group> 
+                    
+                      </td>
+                     
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">2. Cardio-Vescular System </td>
+                      <td>
+                          <mat-radio-group formControlName="CardioVescularSystem" aria-label="Select an option">
+                              <mat-radio-button value="No Abnormality Detected">No Abnormality Detected</mat-radio-button>
+                              <mat-radio-button value="Abnormality Present">Abnormality Present</mat-radio-button>
+                            
+                          </mat-radio-group> 
+                    
+                     
+                      </td>
+                     
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">3. Gastro-Intestinal System </td>
+                      <td>
+                          <mat-radio-group formControlName="GPEGastroIntestinalSystem" aria-label="Select an option">
+                              <mat-radio-button value="No Abnormality Detected">No Abnormality Detected</mat-radio-button>
+                              <mat-radio-button value="Abnormality Present">Abnormality Present</mat-radio-button>
+                            
+                          </mat-radio-group> 
+                     
+                      </td>
+                     
+                    </tr>
+  
+                    <tr>
+                      <td scope="row">4. Central Nervous System </td>
+                      <td>
+                          <mat-radio-group formControlName="CentralNervousSystem" aria-label="Select an option">
+                              <mat-radio-button value="No Abnormality Detected">No Abnormality Detected</mat-radio-button>
+                              <mat-radio-button value="Abnormality Present">Abnormality Present</mat-radio-button>
+                            
+                          </mat-radio-group>
+                      
+                      </td>
+                     
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="button" value="Save" class="btn btn-primary"  (click)="GeneralPhysicalExaminationFormSubmit(GeneralPhysicalExaminationForm.value)" >
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
+            </mat-expansion-panel>
+  
+  
+            </mat-expansion-panel>
+  
+  
+            </mat-accordion>
+      
+    </div>
+  </div>

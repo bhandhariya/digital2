@@ -24,6 +24,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { PatientFamilyCreateComponent } from './patient/patient-family-create/patient-family-create.component';
+import { Form5Component } from './patient/form5/form5.component';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    
 
   ],
   providers: [],

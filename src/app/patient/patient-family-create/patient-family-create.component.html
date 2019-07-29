@@ -1,0 +1,118 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Patient</h4>
+          <p class="card-category">Family Details</p>
+        </div>
+        <div class="card-body">
+      
+            <form class="example-form" [formGroup]="familyForm" (ngSubmit)="familyFormSubmit(familyForm.value)"  >
+                <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>
+                      <mat-form-field >
+                          <input matInput formControlName="fatherName" required  placeholder="Father/Mother Name" >
+                      </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field >
+                            <input matInput formControlName="fatherAddress"  placeholder="address" >
+                        </mat-form-field>
+                      </td>
+                      <td>
+                          <mat-form-field >
+                              <input matInput appNumber minlength="10"  maxlength="10" formControlName="fatherNumber"    placeholder="Mobile Number" >
+                          </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field >
+                                <input matInput formControlName="fatherEmail"  placeholder="Email" >
+                            </mat-form-field>
+                          </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <mat-form-field >
+                            <input matInput formControlName="guardianName"  placeholder="Guardian Name" >
+                        </mat-form-field>
+                      </td>
+                      <td>
+                          <mat-form-field >
+                              <input matInput formControlName="guardianAddress"  placeholder="address" >
+                          </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field >
+                                <input matInput formControlName="guardianNumber" appNumber MinDigit="10" MaxDigit="10"  placeholder="Mobile Number" >
+                            </mat-form-field>
+                          </td>
+                          <td>
+                              <mat-form-field >
+                                  <input matInput formControlName="guardianEmail"  placeholder="Email" >
+                              </mat-form-field>
+                            </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <mat-form-field >
+                            <input matInput formControlName="spouseName"  placeholder="Spouse Name If" >
+                        </mat-form-field>
+                      </td>
+                      <td>
+                          <mat-form-field >
+                              <input matInput formControlName="spouseAddress"  placeholder="address" >
+                          </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field >
+                                <input matInput formControlName="spouseNumber" appNumber MinDigit="10" MaxDigit="10"  placeholder="Mobile Number" >
+                            </mat-form-field>
+                          </td>
+                          <td>
+                              <mat-form-field >
+                                  <input matInput formControlName="spouseEmail"  placeholder="Email" >
+                              </mat-form-field>
+                            </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <mat-form-field >
+                              <input matInput formControlName="spouseAge" appNumber MinDigit="2" MaxDigit="2"  placeholder="Spouse Age" >
+                          </mat-form-field> 
+                      </td>
+                      <td>
+                          <mat-form-field >
+                              <input matInput formControlName="spouseOccupation"  placeholder="Spouse Occupation" >
+                          </mat-form-field> 
+                      </td>
+                      <td>
+                          <mat-form-field >
+                              <mat-label>RelationShip Status</mat-label>
+                              <mat-select formControlName="relationShipStatus" >
+                                <mat-option>None</mat-option>
+                                <mat-option value="Living Together">Living Together</mat-option>
+                                <mat-option value="Saperated">Saperated</mat-option>
+                                
+                              </mat-select>
+                          </mat-form-field> 
+                      </td>
+                    <td>
+                        <mat-form-field >
+                            <input matInput formControlName="childernsCount" appNumber MinDigit="1" MaxDigit="2"  placeholder="Childerns Count" >
+                        </mat-form-field> 
+                    </td>
+                    <td>
+                        <button mat-raised-button  color="primary">Submit</button>
+                    </td>
+                  </tr>
+
+                </table>
+            
+            </form>  
+  
+        </div>
+      </div>
+    </div>
+  </div>
