@@ -22,14 +22,7 @@
                           <mat-form-field class="example-full-width">
                               <input  matInput placeholder="Enter Password" type="password" formControlName="password" >
                             </mat-form-field>
-                          
-                            
-                          
-                          
-                   
-                  
-                    
-                    <button type="submit" class="btn btn-primary btn-user btn-block"><a >Login</a></button>
+                    <button type="submit" (click)="loginFormSubmit(loginForm.value)" class="btn btn-primary btn-user btn-block"><a >Login</a></button>
                       </form>
                     <hr>
                     <a href="index.html" class="btn btn-google btn-user btn-block">
