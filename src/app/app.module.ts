@@ -35,6 +35,7 @@ import { environment } from 'environments/environment';
 import { MatInputModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterComponent } from './register/register.component';
+import { PatientCardComponent } from './patient/patient-card/patient-card.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { RegisterComponent } from './register/register.component';
     AdminLayoutComponent,
     LoginComponent,
     RegisterComponent,
+    
     
 
   ],
