@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { finalize } from 'rxjs/operators';
+import { AngularFireStorage } from "@angular/fire/storage";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patient-create',
@@ -10,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientCreateComponent implements OnInit {
 
-  constructor(private router:Router,private http:HttpClient) { }
+  constructor(private router:Router,private http:HttpClient,private storage:AngularFireStorage) { }
 
   ngOnInit() {
   }
@@ -40,7 +43,48 @@ export class PatientCreateComponent implements OnInit {
   })
 
   profileFormSubmit(r){
-    console.log(r)
-    this.router.navigateByUrl('pat-family-create')
+    r.cretatedBy=sessionStorage.getItem('MID');
+    r.cretionTime=Date.now();
+    if(this.profileForm.valid){
+      console.log(r);
+     this.http.post('/api/pat/create',r).subscribe(this.createCB)
+      
+}else{
+
+ Swal.fire('Form Not Filled Correctly');
+}
+    // this.router.navigateByUrl('pat-family-create')
+  }
+
+  createCB=(dt)=>{
+    console.log(dt)
+    if(dt.first_name){
+      Swal.fire('ok Patient have been Saved Successfully');
+       this.router.navigate(['pat-family-create',{id:dt._id}])
+    }else{
+      
+      Swal.fire('ok Patient not Saved Successfully')
+    }
+  }
+
+  uploadPhoto(event){
+    const file = event.target.files[0];
+    console.log(file);
+    var randomString=Math.floor(Date.now() / 1000);
+    const filePath = 'mentcom'+randomString;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath,file);
+    task.snapshotChanges().pipe(
+      finalize(() =>{ var url = fileRef.getDownloadURL()
+        url.subscribe(e=>{
+          console.log(e)
+          this.profileForm.get('imageURL').setValue(e)
+        })
+      } )
+   )
+  .subscribe(e=>{
+    
+  })
+
   }
 }
