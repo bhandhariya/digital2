@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { PatSearchComponent } from './patient/pat-search/pat-search.component';
 
 const routes: Routes =[
   {
@@ -25,6 +26,8 @@ const routes: Routes =[
   },
   {
     path:'register',component:RegisterComponent
+  },{
+    path:'search',component:PatSearchComponent
   }
 ];
 

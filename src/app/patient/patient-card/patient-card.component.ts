@@ -13,7 +13,25 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class PatientCardComponent implements OnInit {
   Patient;id;
   url=""
-  constructor(private http:HttpClient,private aroute:ActivatedRoute,private router:Router,public dialog: MatDialog) { }
+  name;
+  NameSearch
+  constructor(private http:HttpClient,private arout:ActivatedRoute,private router:Router,public dialog: MatDialog) {
+    this.arout.paramMap.subscribe(r=>{
+      this.name=r.get('name');
+    })
+    console.log(this.name);
+    this.searchByName(this.name);
+   }
+   searchByName(r){
+    var obj={
+      name:r
+    }
+    var searchResult = this.http.post('api/pat/getAllbyName',obj);
+    searchResult.subscribe(res=>{
+    this.NameSearch=res;
+    console.log(this.NameSearch);
+    })
+  }
 
   ngOnInit() {
     this.getAllData();

@@ -1,4 +1,72 @@
-<div class="main-content">
+<ng-template #main>
+  <div class="main-content" *ngIf="Patient" >
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Patient</h4>
+          <p class="card-category">Card </p>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div *ngFor="let patient of Patient">
+              <div class="col-md-11"  >
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{patient.first_name}} {{patient.middle_name}} {{patient.last_name}}</mat-card-title>
+                <mat-card-subtitle>Doctor Assigned : {{patient.doctorName}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image style="height:300px" src="{{patient.profile_image}}" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <table class="table table-hover table-inverse table-responsive">
+                     <tr>
+                       <td>Admit on</td>
+                       <td> {{patient.addmission_date | date }} </td>
+                       <td>Age</td>
+                       <td> {{patient.age}} </td>
+                     </tr>
+                     <tr>
+                       <td><button mat-raised-button (click)="openBasicDetails(basicDetails,patient._id)" >Basic Details</button></td>
+                       <td><button (click)="openComplaintDialog(ComplaintsDetails,patient._id)" mat-raised-button color="accent">Open Complaint</button></td>
+                       
+                     </tr>
+                     <tr>
+                      <td><button mat-raised-button color="primary" [matMenuTriggerFor]="history">History</button></td>
+                      <td><button mat-raised-button color="primary" (click)="EditPsychatric(patient._id)">Add Psychatric </button></td>
+                     </tr>
+                    </table>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <!-- <button (click)="getThisPatientData(patient._id)" mat-raised-button color="primary">Complaits</button> -->
+                      
+                      
+                      
+                      
+                      
+        
+                <mat-menu #history="matMenu">
+                  <button mat-raised-button  color="warn" (click)="openHistory(presentHistory,patient._id)" >Open Present History</button>
+                  <!-- <button mat-raised-button color="accent" (click)="openHistory(pastHistory,patient._id)" >Open Past History</button> -->
+                  <button mat-raised-button color="primary" (click)="openHistory(historyOfModeOfItake,patient._id)" >Open Past History</button>
+                  <button mat-raised-button color="warn" (click)="openHistory(treatementHistory,patient._id)" >Treatement History</button>
+                  <button mat-raised-button color="accent" (click)="openHistory(familyHistory,patient._id)" >Family History</button>
+                  <button mat-raised-button color="primary" (click)="openHistory(personalHistory,patient._id)" >Personal History</button>
+                  <button mat-raised-button  color="warn" (click)="openHistory(substanceHistory,patient._id)" >Substance History</button>
+                  <button mat-raised-button color="accent" (click)="openHistory(legalHistory,patient._id)" >Legal History</button>
+                  <!-- <button mat-raised-button color="primary" (click)="openModal(mytemplate)" >Testing Button</button> -->
+                </mat-menu>
+                    </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+  </div>
+</ng-template>
+
+<div class="main-content" *ngIf="NameSearch;else main" >
   <div class="container-fluid">
     <div class="card">
       <div class="card-header card-header-danger">
@@ -7,7 +75,7 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div *ngFor="let patient of Patient">
+          <div *ngFor="let patient of NameSearch">
             <div class="col-md-11"  >
               <mat-card class="example-card">
                 <mat-card-header>
@@ -62,7 +130,7 @@
       </div>
       </div>
       </div>
-      </div>
+</div>
   
 <ng-template #basicDetails>
   <div class="container" *ngIf="dataSource" >

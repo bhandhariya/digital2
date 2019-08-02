@@ -36,6 +36,7 @@ import { MatInputModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { RegisterComponent } from './register/register.component';
 import { PatientCardComponent } from './patient/patient-card/patient-card.component';
+import { PatSearchComponent } from './patient/pat-search/pat-search.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { PatientCardComponent } from './patient/patient-card/patient-card.compon
     AdminLayoutComponent,
     LoginComponent,
     RegisterComponent,
+    PatSearchComponent
     
     
 

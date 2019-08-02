@@ -958,3 +958,41 @@ exports.EditPresentHistory=function(req,res){
         }
     })
   }
+
+
+  exports.getAllByName=function(req,res){
+      console.log(req.body)
+    Patient.find({ "first_name" : { $regex: req.body.name, $options: 'i' } })
+    .populate('childrensdetails')
+    .populate('Complaintsdetails')
+    .populate('Illnessdetails')
+    .populate('PresentHistoryDetails')
+    .populate('PastHistoryDetails')
+    .populate('PastHiHisrotyOfModeOfIntakestorydetails')
+    .populate('TreateMentHistoryDetails')
+    .populate('FamilyHistoryDetails')
+    .populate('PersonalHistoryDetails')
+    .populate('SubstanceHistoryDetails')
+    .populate('LegalHistoryDetails')
+    .populate('generalAptitudeBehaviourDetails')
+    .populate('PsychomotorActivitySpeechDetails')
+    .populate('AffectsDetails')
+    .populate('ThoughtContentDetails')
+    .populate('PossessionDetails')
+    .populate('PerceptionDetails')
+    .populate('CognitiveFunctionDetails')
+    .populate('IntelligenceDetails')
+    .populate('JudgementDetails')
+    .populate('InsightDetails')
+    .populate('GPEDetails')
+    .exec(function(err,pat){
+        if(pat){
+            res.send(pat)
+        }else{
+            console.log(err)
+        }
+    })
+
+   
+
+}

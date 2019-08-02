@@ -68,6 +68,5 @@ export const AdminLayoutRoutes: Routes = [
     {path:'pat-create',       component:PatientCreateComponent},
     {path:'pat-family-create',component:PatientFamilyCreateComponent},
     {path:'form5',component:Form5Component},
-    {path:'card',component:PatientCardComponent},
-    {path:'search',component:PatSearchComponent}
+    {path:'card',component:PatientCardComponent}
 ];

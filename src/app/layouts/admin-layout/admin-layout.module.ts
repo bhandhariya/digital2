@@ -91,7 +91,7 @@ import { PatSearchComponent } from 'app/patient/pat-search/pat-search.component'
     PatientFamilyCreateComponent,
     Form5Component,
     PatientCardComponent,
-    PatSearchComponent
+    
   ],
   providers :[
    

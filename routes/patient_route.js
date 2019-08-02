@@ -90,4 +90,6 @@ router.post('/editLegalHistory',PatientController.editLegalHistory);
 
 router.post('/patientSearchPatientByName',PatientController.patientSearchPatientByName);
 
+router.post('/getAllbyName',PatientController.getAllByName);
+
 module.exports = router;
