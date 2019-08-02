@@ -61,6 +61,7 @@ import { PatientFamilyCreateComponent } from 'app/patient/patient-family-create/
 import { Form5Component } from 'app/patient/form5/form5.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PatientCardComponent } from 'app/patient/patient-card/patient-card.component';
+import { PatSearchComponent } from 'app/patient/pat-search/pat-search.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -89,7 +90,8 @@ import { PatientCardComponent } from 'app/patient/patient-card/patient-card.comp
     PatientCreateComponent,
     PatientFamilyCreateComponent,
     Form5Component,
-    PatientCardComponent
+    PatientCardComponent,
+    PatSearchComponent
   ],
   providers :[
    
