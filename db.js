@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
- var mongoURI = "mongodb://localhost:27017/digital2App";
-
+// var mongoURI = "mongodb://localhost:27017/digital2App";
+var mongoURI="mongodb://rishi:mentcom123@ds231374.mlab.com:31374/digital2"
 
 
 mongoose.Promise = global.Promise;
