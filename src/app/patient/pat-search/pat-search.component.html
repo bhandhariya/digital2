@@ -1,0 +1,38 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Your Result for <span style="color: yellow" >"{{name}}"</span>  is below</h2>
+    </div>
+    <ul class="row">
+      <li class="col-12 col-md-6 col-lg-3"  *ngFor="let patient of NameSearch" >
+          <div class="cnt-block equal-hight" style="">
+            <figure><img src="{{patient.profile_image}}" class="img-responsive" alt=""></figure>
+            <h3><a >{{patient.first_name}} {{patient.middle_name}} {{patient.last_name}}</a></h3>
+            <table class="table">
+              <tr>
+                <td>Admit Since</td>
+                <td>{{patient.addmission_date | date}}</td>
+              </tr>
+              <tr>
+                <td><input type="button" value="more1" (click)='dev()' class="btn btn-danger"></td>
+                <td><input type="button" value="more2" (click)='dev()' class="btn btn-primary"></td>
+             
+              </tr>
+              <tr>
+                <td><input type="button" value="more3" (click)='dev()' class="btn btn-warn"></td>
+                <td><input type="button" value="more4" (click)='dev()' class="btn btn-success"></td>
+              </tr>
+            </table>
+          </div>
+      </li>
+     
+    </ul>
+  </div>
+</section>

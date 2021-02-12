@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patient-family-create',
@@ -9,9 +11,12 @@ import { Router } from '@angular/router';
 })
 export class PatientFamilyCreateComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private router:Router,public arout:ActivatedRoute,private http:HttpClient) { }
 id;
   ngOnInit() {
+    this.arout.paramMap.subscribe(r=>{
+      this.id=r.get('id');
+    })
   }
   familyForm=new FormGroup({
     id: new FormControl(this.id),
@@ -35,26 +40,26 @@ id;
   })
   familyFormSubmit(r){
     console.log(r)
-    this.route.navigateByUrl('form5')
-    // this.familyForm.get('id').setValue(this.id);
-    // this.familyForm.get('updatedBy').setValue(sessionStorage.getItem('MID'));
-    // console.log(this.familyForm.value)
-    // if(this.familyForm.valid){
-    //   console.log(this.familyForm.value)
-    //    this.http.post('/api/pat/addFamilyData',this.familyForm.value).subscribe(this.addFamilyDataCB)
-    // }else{
-    //   Swal.fire('Please fill required Fields')
-    // }
+    
+    r.id=(this.id);
+    r.updatedBy=(sessionStorage.getItem('MID'));
+    
+    if(this.familyForm.valid){
+      console.log(r)
+       this.http.post('/api/pat/addFamilyData',r).subscribe(this.addFamilyDataCB)
+    }else{
+      Swal.fire('Please fill required Fields')
+    }
   }
   addFamilyDataCB=(dt)=>{
-    // console.log(dt);
-    // if(dt.first_name){
-    //   Swal.fire('Personal Details Saved SuccessFully');
-    //   this.router.navigate(['dashboard/accordian',{id:dt._id}])
+    console.log(dt);
+    if(dt.first_name){
+      Swal.fire('Personal Details Saved SuccessFully');
+      this.router.navigate(['form5',{id:dt._id}])
       
-    // }else{
-    //   Swal.fire('error Occured ')
-    // }
+    }else{
+      Swal.fire('error Occured ')
+    }
   }
 
 }

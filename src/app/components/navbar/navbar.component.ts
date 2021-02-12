@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -121,5 +122,12 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+    SearchForm=new FormGroup({
+        name:new FormControl('')
+    })
+    SearchFormSubmit(r){
+        console.log(r)
+        this.router.navigate(['card',{name:r.name}])
     }
 }

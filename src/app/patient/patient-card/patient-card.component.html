@@ -1,0 +1,733 @@
+<ng-template #main>
+  <div class="main-content" *ngIf="Patient" >
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Patient</h4>
+          <p class="card-category">Card </p>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div *ngFor="let patient of Patient">
+              <div class="col-md-11"  >
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{patient.first_name}} {{patient.middle_name}} {{patient.last_name}}</mat-card-title>
+                <mat-card-subtitle>Doctor Assigned : {{patient.doctorName}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image style="height:300px" src="{{patient.profile_image}}" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <table class="table table-hover table-inverse table-responsive">
+                     <tr>
+                       <td>Admit on</td>
+                       <td> {{patient.addmission_date | date }} </td>
+                       <td>Age</td>
+                       <td> {{patient.age}} </td>
+                     </tr>
+                     <tr>
+                       <td><button mat-raised-button (click)="openBasicDetails(basicDetails,patient._id)" >Basic Details</button></td>
+                       <td><button (click)="openComplaintDialog(ComplaintsDetails,patient._id)" mat-raised-button color="accent">Open Complaint</button></td>
+                       
+                     </tr>
+                     <tr>
+                      <td><button mat-raised-button color="primary" [matMenuTriggerFor]="history">History</button></td>
+                      <td><button mat-raised-button color="primary" (click)="EditPsychatric(patient._id)">Add Psychatric </button></td>
+                     </tr>
+                    </table>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <!-- <button (click)="getThisPatientData(patient._id)" mat-raised-button color="primary">Complaits</button> -->
+                      
+                      
+                      
+                      
+                      
+        
+                <mat-menu #history="matMenu">
+                  <button mat-raised-button  color="warn" (click)="openHistory(presentHistory,patient._id)" >Open Present History</button>
+                  <!-- <button mat-raised-button color="accent" (click)="openHistory(pastHistory,patient._id)" >Open Past History</button> -->
+                  <button mat-raised-button color="primary" (click)="openHistory(historyOfModeOfItake,patient._id)" >Open Past History</button>
+                  <button mat-raised-button color="warn" (click)="openHistory(treatementHistory,patient._id)" >Treatement History</button>
+                  <button mat-raised-button color="accent" (click)="openHistory(familyHistory,patient._id)" >Family History</button>
+                  <button mat-raised-button color="primary" (click)="openHistory(personalHistory,patient._id)" >Personal History</button>
+                  <button mat-raised-button  color="warn" (click)="openHistory(substanceHistory,patient._id)" >Substance History</button>
+                  <button mat-raised-button color="accent" (click)="openHistory(legalHistory,patient._id)" >Legal History</button>
+                  <!-- <button mat-raised-button color="primary" (click)="openModal(mytemplate)" >Testing Button</button> -->
+                </mat-menu>
+                    </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+  </div>
+</ng-template>
+
+<div class="main-content" *ngIf="NameSearch;else main" >
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Patient</h4>
+        <p class="card-category">Card </p>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div *ngFor="let patient of NameSearch">
+            <div class="col-md-11"  >
+              <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{patient.first_name}} {{patient.middle_name}} {{patient.last_name}}</mat-card-title>
+              <mat-card-subtitle>Doctor Assigned : {{patient.doctorName}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image style="height:300px" src="{{patient.profile_image}}" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <table class="table table-hover table-inverse table-responsive">
+                   <tr>
+                     <td>Admit on</td>
+                     <td> {{patient.addmission_date | date }} </td>
+                     <td>Age</td>
+                     <td> {{patient.age}} </td>
+                   </tr>
+                   <tr>
+                     <td><button mat-raised-button (click)="openBasicDetails(basicDetails,patient._id)" >Basic Details</button></td>
+                     <td><button (click)="openComplaintDialog(ComplaintsDetails,patient._id)" mat-raised-button color="accent">Open Complaint</button></td>
+                     
+                   </tr>
+                   <tr>
+                    <td><button mat-raised-button color="primary" [matMenuTriggerFor]="history">History</button></td>
+                    <td><button mat-raised-button color="primary" (click)="EditPsychatric(patient._id)">Add Psychatric </button></td>
+                   </tr>
+                  </table>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <!-- <button (click)="getThisPatientData(patient._id)" mat-raised-button color="primary">Complaits</button> -->
+                    
+                    
+                    
+                    
+                    
+      
+              <mat-menu #history="matMenu">
+                <button mat-raised-button  color="warn" (click)="openHistory(presentHistory,patient._id)" >Open Present History</button>
+                <!-- <button mat-raised-button color="accent" (click)="openHistory(pastHistory,patient._id)" >Open Past History</button> -->
+                <button mat-raised-button color="primary" (click)="openHistory(historyOfModeOfItake,patient._id)" >Open Past History</button>
+                <button mat-raised-button color="warn" (click)="openHistory(treatementHistory,patient._id)" >Treatement History</button>
+                <button mat-raised-button color="accent" (click)="openHistory(familyHistory,patient._id)" >Family History</button>
+                <button mat-raised-button color="primary" (click)="openHistory(personalHistory,patient._id)" >Personal History</button>
+                <button mat-raised-button  color="warn" (click)="openHistory(substanceHistory,patient._id)" >Substance History</button>
+                <button mat-raised-button color="accent" (click)="openHistory(legalHistory,patient._id)" >Legal History</button>
+                <!-- <button mat-raised-button color="primary" (click)="openModal(mytemplate)" >Testing Button</button> -->
+              </mat-menu>
+                  </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+</div>
+  
+<ng-template #basicDetails>
+  <div class="container" *ngIf="dataSource" >
+    <table class="table table-bordered table-inverse "  *ngIf="dataSource._id!=bgloid;else editBasicDetail"  >
+      <thead class="thead-inverse">
+        <tr>
+          <th style="color: darkblue">NAME</th>
+          <th style="color: darkblue">AGE</th>
+          <th style="color: darkblue">ADDRESS</th>
+          <th style="color: darkblue">EMAIL</th>
+          <th style="color: darkblue">CONTACT NO.</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">{{dataSource.first_name}} {{dataSource.middle_name}} {{dataSource.last_name}} </td>
+            <td>{{dataSource.age}}</td>
+            <td>{{dataSource.permanent_address}}</td>
+            <td>{{dataSource.email}}</td>
+            <td>{{dataSource.permanent_mobile}}</td>
+          </tr>
+        </tbody>
+        <thead class="thead-inverse">
+          <tr>
+            <th style="color: darkblue" >DATE OF BIRTH</th>
+            <th style="color: darkblue" >EDUCATION</th>
+            <th style="color: darkblue" >MARITAL STATUS</th>
+            <th style="color: darkblue" >OCCUPATION</th>
+            <th style="color: darkblue" >PARENT NAME</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">{{dataSource.DOB | date}} </td>
+              <td>{{dataSource.education}}</td>
+              <td>{{dataSource.marrital_status}}</td>
+              <td>{{dataSource.occupation}}</td>
+              <td>{{dataSource.guardian_name}}</td>
+            </tr>
+          </tbody>
+          <thead class="thead-inverse">
+            <tr>
+              <th style="color: darkblue" >ADDMISSION DATE</th>
+              <th style="color: darkblue" >DOCTOR ASSIGNED</th>
+              <th style="color: darkblue" >GENDER</th>
+              <th style="color: darkblue" >CREATED BY</th>
+              <th style="color: darkblue" >PARENT ADDRESS</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">{{dataSource.addmission_date | date}} </td>
+                <td>{{dataSource.doctorName}}</td>
+                <td>{{dataSource.sex}}</td>
+                <td>{{dataSource.cretatedBy}}</td>
+                <td>{{dataSource.guardian_address}}</td>
+              </tr>
+            </tbody>
+            <tr>
+              <td>
+                <input type="button" value="Edit" class="btn btn-danger" (click)="patientEdit(dataSource._id)" >
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                  <button mat-button color="accent">Complaints and Illness</button>
+                 
+              </td>
+            </tr>
+    </table>
+  </div>
+  
+ 
+</ng-template>
+<ng-template #editBasicDetail>
+  <table class="table table-bordered table-inverse " [formGroup]="patientEditForm"    >
+    <thead class="thead-inverse">
+      <tr>
+        <th style="color: darkblue" >Name</th>
+        <th style="color: darkblue" >Age</th>
+        <th style="color: darkblue" >Address</th>
+        <th style="color: darkblue" >Email</th>
+        <th style="color: darkblue" >Contact No.</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">
+            
+              <!-- {{dataSource.first_name}} {{dataSource.middle_name}} {{dataSource.last_name}} -->
+            
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="first_name"  formControlName="fname"  value="{{dataSource.first_name}}"    >
+                  </mat-form-field>
+                
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="middle_name" formControlName="mname"  value="{{dataSource.middle_name}}" ></textarea>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="last_name"  formControlName="lname" value="{{dataSource.last_name}}" >
+                    </mat-form-field>
+                
+                <input type="button" value="save" (click)="check(dataSource)" >
+          </td>
+          <td>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="age"   value="{{dataSource.age}}" >
+                </mat-form-field>
+           </td>
+          <td>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="permanent_address"   value="{{dataSource.permanent_address}}" >
+                </mat-form-field>
+            </td>
+          <td> <mat-form-field class="example-full-width">
+              <input matInput placeholder="email"   value="{{dataSource.email}}" >
+            </mat-form-field></td>
+          <td> <mat-form-field class="example-full-width">
+              <input matInput placeholder="permanent_mobile"   value="{{dataSource.permanent_mobile}}" >
+            </mat-form-field></td>
+        </tr>
+      </tbody>
+      <thead class="thead-inverse">
+        <tr>
+          <th style="color: darkblue" >Date of Birth</th>
+          <th style="color: darkblue" >Education</th>
+          <th style="color: darkblue" >Marrital Status</th>
+          <th style="color: darkblue" >Occupation</th>
+          <th style="color: darkblue" >Parent Name</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">{{dataSource.DOB | date}} </td>
+            <td> <mat-form-field class="example-full-width">
+                <input matInput placeholder="education"   value="{{dataSource.education}}" >
+              </mat-form-field></td>
+            <td> <mat-form-field class="example-full-width">
+                <input matInput placeholder="marrital_status"   value="{{dataSource.marrital_status}}" >
+              </mat-form-field></td>
+            <td> <mat-form-field class="example-full-width">
+                <input matInput placeholder="occupation"   value="{{dataSource.occupation}}" >
+              </mat-form-field></td>
+            <td> <mat-form-field class="example-full-width">
+                <input matInput placeholder="guardian_name"   value="{{dataSource.guardian_name}}" >
+              </mat-form-field></td>
+          </tr>
+        </tbody>
+        <thead class="thead-inverse">
+          <tr>
+            <th style="color: darkblue" >Addmission Date</th>
+            <th style="color: darkblue" >Doctor Assigned</th>
+            <th style="color: darkblue" >Gender</th>
+            <th style="color: darkblue" >Created By</th>
+            <th style="color: darkblue" >Parent Address</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">{{dataSource.addmission_date | date}} </td>
+              <td>{{dataSource.doctorName}}</td>
+              <td> <mat-form-field class="example-full-width">
+                  <input matInput placeholder="gender"   value="{{dataSource.sex}}" >
+                </mat-form-field></td>
+              <td>{{dataSource.cretatedBy}}</td>
+              <td> <mat-form-field class="example-full-width">
+                  <input matInput placeholder="guardian_address"   value="{{dataSource.guardian_address}}" >
+                </mat-form-field></td>
+            </tr>
+          </tbody>
+          <tr>
+            <td>
+              <input type="button" value="cancle" class="btn btn-success" (click)="cancle()" >
+              <input type="button" value="save" class="btn btn-primary" (click)="patientFormSubmit(patientEditForm.value)" >
+            </td>
+          
+
+          </tr>
+  </table>
+</ng-template>
+<ng-template #ComplaintsDetails>
+  <table class="table table-hover table-inverse">
+    <thead class="thead-inverse">
+      <tr>
+        <th style="color: blue" >complain</th>
+        <th style="color: blue" >complain_duration</th>
+        <th style="color: blue" >creationDate</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of Complaint">
+          <td scope="row">{{item.complain}}</td>
+          <td>{{item.complain_duration}}</td>
+          <td>{{item.creationDate | date}}</td>
+        </tr>
+      </tbody>
+      <thead class="thead-inverse">
+          <tr>
+            <th style="color: blue" >Course</th>
+            <th style="color: blue" >CurruntEpisodeNumber</th>
+            <th style="color: blue" >DurationOfCurruntIllness</th>
+            <th style="color: blue" >ModeOfOnset</th>
+            <th style="color: blue" >PrecipatingFactors</th>
+            <th style="color: blue" >PredisposingFactors</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of Illness">
+              <td scope="row">{{item.Course}}</td>
+              <td>{{item.CurruntEpisodeNumber}}</td>
+              <td>{{item.DurationOfCurruntIllness}}</td>
+              <td>{{item.ModeOfOnset}}</td>
+              <td>{{item.PrecipatingFactors}}</td>
+              <td>{{item.PredisposingFactors}}</td>
+              
+            </tr>
+          </tbody>
+  </table>
+</ng-template>
+
+<ng-template #presentHistory>
+  <h1>Present History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of PresentHistory;let i=index">
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else presentHistoryEdit" >
+      <tr>
+        <th style="color: blue" >SN</th>
+        <th style="color: blue" >History</th>
+        <th style="color: blue" >Created Date</th>
+        <th style="color: blue" >Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.history}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="Edit" class="btn btn-danger"  (click)="editPresentHistory(item._id)" >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+<ng-template #presentHistoryEdit>
+  <div class="form-group" [formGroup]="presentEditHistoryForm"  >
+    <label for="">Present History </label>
+    <textarea class="form-control" formControlName="history"  name="" id="" rows="3"></textarea>
+    <input type="button" value="Save" class="btn btn-success" (click)="presentEditHistoryFormSubmit(presentEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+<ng-template #historyOfModeOfItake>
+  <h1>Past History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of HistoryOfModeOfIntake;let i=index" >
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else pastHistoryEdit" >
+      <tr>
+        <th>SN</th>
+        <th>Medical History</th>
+        <th>Psychatric History</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.MedicalHistory}}
+          </td>
+          <td>
+            {{item.PsychatricHistory}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="edit" class="btn btn-danger" (click)="editPastHistory(item._id)" >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+
+<ng-template #pastHistoryEdit>
+  <div class="form-group" [formGroup]="pastEditHistoryForm"  >
+    <label for="">MedicalHistory </label>
+    <textarea class="form-control" formControlName="MedicalHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Psychatric History </label>
+    <textarea class="form-control" formControlName="PsychatricHistory"  name="" id="" rows="3"></textarea>
+    <input type="button" value="Save" class="btn btn-success" (click)="pastEditHistoryFormSubmit(pastEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+
+<ng-template #treatementHistory>
+  <h1>Treatement History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of TreatementHistory;let i=index" >
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else treatementEditHistory" >
+      <tr>
+        <th>SN</th>
+        <th>PastTreatementHistory</th>
+        <th>PresentTreatementHistory</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.PastTreatementHistory}}
+          </td>
+          <td>
+            {{item.PresentTreatementHistory}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="edit" class="btn btn-danger"  (click)="editTreatementHistory(item._id)"  >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+<ng-template #treatementEditHistory>
+  <div class="form-group" [formGroup]="editTreatementHistoryForm"  >
+    <label for="">Past Treatement History </label>
+    <textarea class="form-control" formControlName="PastHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Present Treatement History</label>
+    <textarea class="form-control" formControlName="PresentHistory"  name="" id="" rows="3"></textarea>
+    <input type="button" value="Save" class="btn btn-success" (click)="editTreatementHistorySubmit(editTreatementHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+<ng-template #familyHistory>
+  <h1>Family History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of FamilyHistory;let i=index" >
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else familyEditHistory" >
+      <tr>
+        <th>SN</th>
+        <th>Family History of Mental illness or Drug Addiction</th>
+        <th>Family Environment History</th>
+        <th>Family Attitude History</th>
+        <th>Living Condition History</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr  >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.mentalHistory}}
+          </td>
+          <td>
+            {{item.environHistory}}
+          </td>
+          <td>
+            {{item.attitudeHistory}}
+          </td>
+          <td>
+            {{item.livingHistory}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="Edit" class="btn btn-danger" (click)="editFamilyHistory(item._id)" >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+
+<ng-template #familyEditHistory>
+  <div class="form-group" [formGroup]="FamilyEditHistoryForm"  >
+    <label for="">	Family History of Mental illness or Drug Addiction</label>
+    <textarea class="form-control" formControlName="mentalHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Family Environment History</label>
+    <textarea class="form-control" formControlName="environHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Family Attitude History</label>
+    <textarea class="form-control" formControlName="attitudeHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Living Condition History</label>
+    <textarea class="form-control" formControlName="livingHistory"  name="" id="" rows="3"></textarea>
+    <input type="button" value="Save" class="btn btn-success" (click)="editFamilyHistorySubmit(FamilyEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+
+
+<ng-template #personalHistory>
+  <h1>Personal History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of PersonalHistory;let i=index"  >
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else personalEditHistory" >
+      <tr>
+        <th>SN</th>
+        <th>BirthHistory</th>
+        <th>DevelopmentHistory</th>
+        <th>EducationHistory</th>
+        <th>ImmunizationHistory</th>
+        <th>MarritalHistory</th>
+        <th>Sexual History</th>
+        <th>MenstrualandobstetricHistory</th>
+        <th>OccupationHistory</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.BirthHistory}}
+          </td>
+          <td>
+            {{item.DevelopmentHistory}}
+          </td>
+          <td>
+            {{item.EducationHistory}}
+          </td>
+          <td>
+            {{item.ImmunizationHistory}}
+          </td>
+          <td>
+            {{item.MarritalHistory}}
+          </td>
+          <td>
+            {{item.SexualHistory}}
+          </td>
+          <td>
+            {{item.MenstrualandobstetricHistory}}
+          </td>
+          <td>
+            {{item.OccupationHistory}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="click" class="btn btn-danger" (click)="editPersonalHistory(item._id)"  >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+
+<ng-template #personalEditHistory>
+  <div class="form-group" [formGroup]="PersonalEditHistoryForm"  >
+    <label for="">	Birth History</label>
+    <textarea class="form-control" formControlName="BirthHistory"  name="" id="" rows="3"  ></textarea>
+    <label for="">Development History</label>
+    <textarea class="form-control" formControlName="DevelopmentHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Education History</label>
+    <textarea class="form-control" formControlName="EducationHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Immunization History</label>
+    <textarea class="form-control" formControlName="ImmunizationHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Marrital History</label>
+    <textarea class="form-control" formControlName="MarritalHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Sexual History</label>
+    <textarea class="form-control" formControlName="SexualHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Occupation History</label>
+    <textarea class="form-control" formControlName="OccupationHistory"  name="" id="" rows="3"></textarea>
+    <label for="">Menstrual and obstetric History(Females)</label>
+    <textarea class="form-control" formControlName="MenstrualandobstetricHistory"  name="" id="" rows="3"></textarea>
+    
+    <input type="button" value="Save" class="btn btn-success" (click)="editPersonalHistorySubmit(PersonalEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+
+<ng-template #substanceHistory>
+  <h1>Substance History</h1>
+  <table class="table table-hover table-inverse" *ngFor="let item of SubstanceHistory;let i=index" >
+    <thead class="thead-inverse" *ngIf="item._id!=bgloid;else substanceEditHistory"  >
+      <tr>
+        <th>SN</th>
+        <th>History of choise of Substance</th>
+        <th>History of Total Duration of Use  </th>
+        <th>History of Duration of Regular Use</th>
+        <th>History of Daily Intake (Amount/No.)</th>
+        <th>History of last Intake of Drug (Day/time and Quantity of the drug)</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="item._id!=bgloid" >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.HistoryOfChoiseOfSubstance}}
+          </td>
+          <td>
+            {{item.HistoryOfTotalDurationOfUse}}
+          </td>
+          <td>
+            {{item.HistoryOfDurationOfRegularUse}}
+          </td>
+          <td>
+            {{item.HistoryOfDailyIntake}}
+          </td>
+          <td>
+            {{item.HistoryOfLastIntakeOfDrug}}
+          </td>
+          
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="click" class="btn btn-danger" (click)="substanceHistoryEdit(item._id)"  >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+
+<ng-template #substanceEditHistory>
+  <div class="form-group" [formGroup]="SubstaceEditHistoryForm"  >
+    <label for="">	History of choise of Substance</label>
+    <textarea class="form-control" formControlName="HistoryOfChoiseOfSubstance"  name="" id="" rows="3"  ></textarea>
+    <label for="">Substance	History of Total Duration of Use</label>
+    <textarea class="form-control" formControlName="HistoryOfTotalDurationOfUse"  name="" id="" rows="3"></textarea>
+    <label for="">Duration of Use	History of Duration of Regular Use</label>
+    <textarea class="form-control" formControlName="HistoryOfDurationOfRegularUse"  name="" id="" rows="3"></textarea>
+    <label for="">History of Daily Intake (Amount/No.)</label>
+    <textarea class="form-control" formControlName="HistoryOfDailyIntake"  name="" id="" rows="3"></textarea>
+    <label for="">History of last Intake of Drug (Day/time and Quantity of the drug)</label>
+    <textarea class="form-control" formControlName="HistoryOfLastIntakeOfDrug"  name="" id="" rows="3"></textarea>
+   
+    
+    <input type="button" value="Save" class="btn btn-success" (click)="editsubstanceHistorySubmit(SubstaceEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+
+
+<ng-template #legalHistory>
+  <h1>History of Mode of intake</h1>
+  <table class="table table-hover table-inverse"  *ngFor="let item of LegalHistory;let i=index" >
+    <thead class="thead-inverse"  *ngIf="item._id!=bgloid;else legalEditHistory"  >
+      <tr>
+        <th>SN</th>
+        <th>H/o Homicide/Suicide Attempts If yes, specify the number of attempt and method.</th>
+        <th>Pre-morbid personality</th>
+        <th>Created Date</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="item._id!=bgloid" >
+        <tr >
+          <td scope="row">{{i+1}}</td>
+          <td>
+            {{item.HomicideAttempt}}
+          </td>
+          <td>
+            {{item.preMorbidpersonality}}
+          </td>
+          <td>
+            {{item.creationDate | date}}
+          </td>
+          <td>
+            <input type="button" value="click" class="btn btn-danger"  (click)="legalHistoryEdit(item._id)" >
+          </td>
+        </tr>
+        
+      </tbody>
+  </table>
+</ng-template>
+
+<ng-template #legalEditHistory>
+  <div class="form-group" [formGroup]="LegalEditHistoryForm"  >
+    <label for="">H/o Homicide/Suicide Attempts If yes, specify the number of attempt and method.</label>
+    <textarea class="form-control" formControlName="HomicideAttempt"  name="" id="" rows="3"  ></textarea>
+    <label for="">Pre-morbid personality</label>
+    <textarea class="form-control" formControlName="preMorbidpersonality"  name="" id="" rows="3"></textarea>
+    
+   
+    
+    <input type="button" value="Save" class="btn btn-success" (click)="LegalHistoryEditSubmit(LegalEditHistoryForm.value)"  > 
+    <input type="button" value="Cancle" class="btn btn-danger" (click)="CancleForm()" >
+  </div>
+</ng-template>
+

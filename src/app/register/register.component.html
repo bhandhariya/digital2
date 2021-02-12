@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-5 d-none d-lg-block" style="background: url(../../assets/img/398329-PD0PG2-599.jpg); background-position: center; background-size: cover;"></div>
+            <div class="col-lg-7">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                </div>
+                <form class="example-form" [formGroup]="registerForm" >
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Enter your Name" formControlName="name" >
+                      </mat-form-field>  
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Enter your Email" formControlName="email" >
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input  matInput placeholder="Enter Password" type="password" formControlName="password" >
+                      </mat-form-field>
+                      
+                        <mat-form-field class="example-full-width">
+                            <input  matInput placeholder="Repeat Password" type="password" formControlName="rpassword" >
+                          </mat-form-field>
+                    
+                      
+                    
+                    
+             
+            
+              
+              <button type="submit" (click)="registerFormSubmit(registerForm.value)" class="btn btn-primary btn-user btn-block"><a >Register</a></button>
+                </form>
+                <hr>
+                <div class="text-center">
+                  <a class="small" routerLink="../forgot">Forgot Password?</a>
+                </div>
+                <div class="text-center"> 
+                  <a class="small" routerLink="../login">Already have an account? Login!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

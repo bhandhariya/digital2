@@ -11,6 +11,8 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { PatientCreateComponent } from 'app/patient/patient-create/patient-create.component';
 import { PatientFamilyCreateComponent } from 'app/patient/patient-family-create/patient-family-create.component';
 import { Form5Component } from 'app/patient/form5/form5.component';
+import { PatientCardComponent } from 'app/patient/patient-card/patient-card.component';
+import { PatSearchComponent } from 'app/patient/pat-search/pat-search.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,5 +67,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     {path:'pat-create',       component:PatientCreateComponent},
     {path:'pat-family-create',component:PatientFamilyCreateComponent},
-    {path:'form5',component:Form5Component}
+    {path:'form5',component:Form5Component},
+    {path:'card',component:PatientCardComponent}
 ];

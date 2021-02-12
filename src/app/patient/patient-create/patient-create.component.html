@@ -14,7 +14,7 @@
      </mat-form-field></td>
      <td>
        
-        <input type="file"  formControlName="basicfile" placeholder="Select Profile Photo" name=""   id="">
+        <input type="file" (change)="uploadPhoto($event)" formControlName="basicfile" placeholder="Select Profile Photo" name=""   id="">
         </td>
      </tr>
           </table>
