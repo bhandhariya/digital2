@@ -22,28 +22,32 @@ export class RegisterComponent implements OnInit {
     password:new FormControl(''),
     rpassword:new FormControl('')
   })
+  // registerFormSubmit(r){
+  //   console.log(r)
+  //   this.auth.auth.createUserWithEmailAndPassword(r.email,r.password).then(()=>{
+  //     this.auth.auth.currentUser.updateProfile({
+  //       displayName:r.name
+  //     }).then(()=>{
+  //       var user=this.auth.auth.currentUser;
+  //       var obj={
+  //         name:user.displayName,
+  //         email:user.email,
+  //         providerId:user.providerId,
+  //         uid:user.uid,
+  //         emailVerified:user.emailVerified
+  //        }
+  //        this.http.post('/api/users/register',obj).subscribe(this.cb)
+  //     })
+  //   }).catch(error=>{
+  //     var errorCode = error.code;
+  //     var errorMessage = error.message;
+  //     Swal.default.fire("Oops!", errorMessage, "error");
+  //   })
+  // }
   registerFormSubmit(r){
-    console.log(r)
-    this.auth.auth.createUserWithEmailAndPassword(r.email,r.password).then(()=>{
-      this.auth.auth.currentUser.updateProfile({
-        displayName:r.name
-      }).then(()=>{
-        var user=this.auth.auth.currentUser;
-        var obj={
-          name:user.displayName,
-          email:user.email,
-          providerId:user.providerId,
-          uid:user.uid,
-          emailVerified:user.emailVerified
-         }
-         this.http.post('/api/users/register',obj).subscribe(this.cb)
-      })
-    }).catch(error=>{
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      Swal.default.fire("Oops!", errorMessage, "error");
-    })
+
   }
+
 cb=(dt)=>{
   if(dt.uid){
     Swal.default.fire("Great", "User Registered Successfully", "success");
